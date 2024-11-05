@@ -4928,7 +4928,7 @@ PrefabInstance:
     - target: {fileID: 5224522145572780822, guid: dbac3a1d28484354f8ce21f7b4bcbc81,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.521
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 5224522145572780822, guid: dbac3a1d28484354f8ce21f7b4bcbc81,
         type: 3}
@@ -4938,7 +4938,7 @@ PrefabInstance:
     - target: {fileID: 5224522145572780822, guid: dbac3a1d28484354f8ce21f7b4bcbc81,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.397
+      value: 1.275
       objectReference: {fileID: 0}
     - target: {fileID: 5224522145572780822, guid: dbac3a1d28484354f8ce21f7b4bcbc81,
         type: 3}
@@ -4978,7 +4978,7 @@ PrefabInstance:
     - target: {fileID: 9140727164278147333, guid: dbac3a1d28484354f8ce21f7b4bcbc81,
         type: 3}
       propertyPath: m_Name
-      value: Cotton Candy (1)
+      value: Cotton Candy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
