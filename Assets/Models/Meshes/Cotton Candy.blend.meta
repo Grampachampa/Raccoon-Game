@@ -1,12 +1,110 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/Meshes/Cotton Candy.blend.meta
 guid: 96909154f3e657f49808b8eae3e95efb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
+========
+guid: 678c9af167fc47849afae4797121b6ac
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: body
+  - first:
+      1: 100002
+    second: ear.L
+  - first:
+      1: 100004
+    second: ear.R
+  - first:
+      1: 100006
+    second: leg.B.L
+  - first:
+      1: 100008
+    second: leg.B.R
+  - first:
+      1: 100010
+    second: leg.F.L
+  - first:
+      1: 100012
+    second: leg.F.R
+  - first:
+      1: 100014
+    second: Mesh
+  - first:
+      1: 100016
+    second: //RootNode
+  - first:
+      1: 100018
+    second: Rig
+  - first:
+      1: 100020
+    second: root
+  - first:
+      1: 100022
+    second: tail.01
+  - first:
+      1: 100024
+    second: tail.02
+  - first:
+      4: 400000
+    second: body
+  - first:
+      4: 400002
+    second: ear.L
+  - first:
+      4: 400004
+    second: ear.R
+  - first:
+      4: 400006
+    second: leg.B.L
+  - first:
+      4: 400008
+    second: leg.B.R
+  - first:
+      4: 400010
+    second: leg.F.L
+  - first:
+      4: 400012
+    second: leg.F.R
+  - first:
+      4: 400014
+    second: Mesh
+  - first:
+      4: 400016
+    second: //RootNode
+  - first:
+      4: 400018
+    second: Rig
+  - first:
+      4: 400020
+    second: root
+  - first:
+      4: 400022
+    second: tail.01
+  - first:
+      4: 400024
+    second: tail.02
+  - first:
+      21: 2100000
+    second: M_Raccoon
+  - first:
+      43: 4300000
+    second: Mesh
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Mesh
+>>>>>>>> main:Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD0.fbx.meta
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+<<<<<<<< HEAD:Assets/Models/Meshes/Cotton Candy.blend.meta
       name: Material.002
     second: {fileID: 2100000, guid: 673d041eeb4802247a06ea9ea608c8db, type: 2}
   - first:
@@ -17,6 +115,13 @@ ModelImporter:
   materials:
     materialImportMode: 2
     materialName: 0
+========
+      name: M_Raccoon
+    second: {fileID: 2100000, guid: de02d84103b96f048803da15f66db7f3, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 1
+>>>>>>>> main:Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD0.fbx.meta
     materialSearch: 1
     materialLocation: 1
   animations:
@@ -42,7 +147,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -55,14 +160,17 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+<<<<<<<< HEAD:Assets/Models/Meshes/Cotton Candy.blend.meta
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
+========
+    fileIdsGeneration: 1
+>>>>>>>> main:Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD0.fbx.meta
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -73,9 +181,6 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
     strictVertexDataChecks: 0
@@ -85,7 +190,7 @@ ModelImporter:
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
+    blendShapeNormalImportMode: 0
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
@@ -105,14 +210,19 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: c64a77e383da2e64b83b666fb6d16b34,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+<<<<<<<< HEAD:Assets/Models/Meshes/Cotton Candy.blend.meta
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
+========
+  avatarSetup: 2
+>>>>>>>> main:Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD0.fbx.meta
   additionalBone: 0
   userData: 
   assetBundleName: 

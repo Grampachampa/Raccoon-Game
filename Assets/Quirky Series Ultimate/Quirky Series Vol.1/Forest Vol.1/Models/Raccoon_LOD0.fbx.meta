@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD0.fbx.meta
 guid: 678c9af167fc47849afae4797121b6ac
+========
+guid: 1dd204293bf4d404cbcdfde3c2291a6b
+>>>>>>>> main:Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD1.fbx.meta
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
