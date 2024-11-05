@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4e3d60fa1e82b449832cca9eb64033b
+guid: 96909154f3e657f49808b8eae3e95efb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Cylinder001Mat
-    second: {fileID: 2100000, guid: 417a28f9d5ae5b3499f06498b36f72c2, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: 673d041eeb4802247a06ea9ea608c8db, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Sphere001Mat
-    second: {fileID: 2100000, guid: efb39cb53e8febf4db07e8e2fd1b8196, type: 2}
+      name: Material.003
+    second: {fileID: 2100000, guid: c307995bfd7bb954286b966bacd5dab3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
