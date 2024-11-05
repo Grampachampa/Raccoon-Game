@@ -127,6 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad971f85130fb4d05897f6bcbef25617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  controller: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  speed: 5
 --- !u!1 &512172160122646258
 GameObject:
   m_ObjectHideFlags: 0
