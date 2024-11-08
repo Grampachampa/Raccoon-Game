@@ -16,6 +16,9 @@ public class RaccoonController : MonoBehaviour
     [Tooltip("Insert Animator Controller")]
     private Animator playerAnimator;
     
+    private Vector3 velocity;
+    private float gravity = -9.81f;
+    
     public float speed = 2f;
     
     // Start is called before the first frame update
@@ -40,8 +43,29 @@ public class RaccoonController : MonoBehaviour
         camRight.y = 0;
         
         Vector3 movement = (camForward * x) + (camRight * z);
+        if (movement.magnitude > 0)
+        {
+            playerAnimator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("IsWalking", false);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerAnimator.SetBool("IsEating", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("IsEating", false);
+        }
         movement.Normalize();
         controller.Move(movement * (speed * Time.deltaTime));
+        
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime); 
+        
         
     }
 }
