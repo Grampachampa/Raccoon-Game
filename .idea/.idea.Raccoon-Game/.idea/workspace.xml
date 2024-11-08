@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e0fe05ba-52f3-40d3-9b9e-1ed4171aac22" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Prefabs/Raccoon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Prefabs/Raccoon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cotton Candy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cotton Candy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Animations/AC_Raccoon_new.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Animations/AC_Raccoon_new.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/RaccoonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RaccoonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +31,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;turkan&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
