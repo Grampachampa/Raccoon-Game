@@ -6,7 +6,7 @@ public class RaccoonController : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Insert Main Camera")]
-    private Transform mainCamera;
+    private Camera mainCamera;
     
     [SerializeField]
     [Tooltip("Insert Character Controller")]
@@ -37,9 +37,9 @@ public class RaccoonController : MonoBehaviour
         Transform playerTransform = transform;
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        Vector3 camForward = mainCamera.forward;
+        Vector3 camForward = mainCamera.transform.forward;
         camForward.y = 0;
-        Vector3 camRight = mainCamera.right;
+        Vector3 camRight = mainCamera.transform.right;
         camRight.y = 0;
         
         Vector3 movement = (camForward * x) + (camRight * z);
