@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,12 +27,16 @@ public class RaccoonController : MonoBehaviour
     
     private bool canDash = true;
     private bool isDashing = false;
-    private float dashingPower = 24f;
+    private float dashingPower = 10f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 1f;
+    private float dashingCooldown = 2f;
+    private bool isEating = false;
     
     public float speed = 2f;
-    public float runSpeed = 10f;
+    public float slowSpeed = 1f;
+    public float currentSpeed;
+    public LevelManager levelManager;
+    
     
     
     private static readonly int IsSwimming = Animator.StringToHash("IsSwimming");
@@ -66,10 +71,9 @@ public class RaccoonController : MonoBehaviour
         {
             playerAnimator.SetBool(IsWalking, false);
         }
+        
 
-        // Determine speed based on whether the player is swimming
-        float currentSpeed = speed;
-        if (Input.GetKey(KeyCode.Space) && canDash)
+        if ((Input.GetMouseButton(0) | Input.GetKey(KeyCode.Space)) && canDash)
         {
             playerAnimator.SetBool(IsSwimming, true);
             StartCoroutine(Dash());
@@ -79,17 +83,21 @@ public class RaccoonController : MonoBehaviour
             playerAnimator.SetBool(IsSwimming, false);
         }
 
+        currentSpeed = speed;
+
         // Move the character
         controller.Move(movement * (currentSpeed * Time.deltaTime));
 
         // Trigger eating animation on right-click
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKey(KeyCode.E))
         {
             playerAnimator.SetBool(IsEating, true);
+            isEating = true;
         }
         else
         {
             playerAnimator.SetBool(IsEating, false);
+            isEating = false;
         }
 
         // Apply gravity
@@ -125,9 +133,51 @@ public class RaccoonController : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
-        
-        
-        
-        
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("CottonCandy") && isEating)
+        {
+            Destroy(other.gameObject);
+            levelManager.cottonCandyCount++;
+        }
+        /*
+        if (other.gameObject.CompareTag("Puddle"))
+        {
+            if (levelManager.cottonCandyCount >= 1)
+            {
+                levelManager.cottonCandyCount--;
+                currentSpeed = slowSpeed;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (other.gameObject.CompareTag("Rain"))
+        {
+            if (levelManager.cottonCandyCount >= 1)
+            {
+                levelManager.cottonCandyCount--;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        */
+    }
+    
+    /*
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PotHole"))
+        {
+            //enter the new level
+        }
+    }
+    */
 }
+
