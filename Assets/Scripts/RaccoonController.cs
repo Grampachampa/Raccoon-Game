@@ -46,15 +46,17 @@ public class RaccoonController : MonoBehaviour
         if (movement.magnitude > 0)
         {
             playerAnimator.SetBool("IsWalking", true);
+            Debug.Log("Walking animation triggered");
         }
         else
         {
             playerAnimator.SetBool("IsWalking", false);
         }
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             playerAnimator.SetBool("IsEating", true);
+            Debug.Log("Eating animation triggered");
         }
         else
         {
