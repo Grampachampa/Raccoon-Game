@@ -5,6 +5,9 @@ using UnityEngine;
 public class SprinklerController : MonoBehaviour
 {
     public float rotationSpeed = 36.0f;
+    public GameObject sprinklerCone;
+    public Vector3 coneOffset = new Vector3(0, 0, 1);
+    private GameObject coneInstance;
     
     [SerializeField] 
     private ParticleSystem waterParticles;
@@ -23,6 +26,8 @@ public class SprinklerController : MonoBehaviour
         sprinklerAudio.volume = 1.0f;
         sprinklerAudio.spatialBlend = 0f; 
         sprinklerAudio.maxDistance = 5.0f;
+        
+        SpawnCone();
     }
 
     void Update()
@@ -56,4 +61,18 @@ public class SprinklerController : MonoBehaviour
     //     }
     //     return false;
     // }
+    
+    void SpawnCone()
+    {
+        // Instantiate the cone prefab and set it as a child of the sprinkler object
+        sprinklerCone = Instantiate(sprinklerCone, transform.position + transform.TransformDirection(coneOffset), transform.rotation);
+        coneInstance.transform.parent = transform; // Make the cone follow the sprinkler
+
+        // Ensure the cone is a trigger and invisible
+        var meshRenderer = coneInstance.GetComponent<MeshRenderer>();
+        if (meshRenderer) meshRenderer.enabled = false; // Hide the mesh renderer
+
+        var collider = coneInstance.GetComponent<MeshCollider>();
+        if (collider) collider.isTrigger = true;
+    }
 }
