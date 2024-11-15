@@ -206,11 +206,11 @@ public class RaccoonController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Sprinkler"))
         {
-            if (levelManager.cottonCandyCount >= 1)
+            if (levelManager.cottonCandyCount >= 1 && !isDashing)
             {
                 levelManager.cottonCandyCount--;
             }
-            else
+            else if (levelManager.cottonCandyCount <= 0)
             {
                 StartCoroutine(Die());
                 //Destroy(gameObject);
