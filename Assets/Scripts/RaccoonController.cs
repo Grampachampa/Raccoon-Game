@@ -31,6 +31,8 @@ public class RaccoonController : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
     private bool isEating = false;
+    private bool isDeath = false;
+    
     
     public float speed = 2f;
     public float slowSpeed = 1f;
@@ -42,6 +44,8 @@ public class RaccoonController : MonoBehaviour
     private static readonly int IsSwimming = Animator.StringToHash("IsSwimming");
     private static readonly int IsEating = Animator.StringToHash("IsEating");
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int IsDead = Animator.StringToHash("IsDead");
+    
     
     float smooth = 5.0f;
     float tiltAngle = 60.0f;
@@ -52,6 +56,12 @@ public class RaccoonController : MonoBehaviour
         {
             return;
         }
+
+        if (isDeath)
+        {
+            Destroy(gameObject);
+        }
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -151,6 +161,13 @@ public class RaccoonController : MonoBehaviour
         canDash = true;
     }
 
+    private IEnumerator Die()
+    {
+        playerAnimator.SetBool(IsDead, true);
+        yield return new WaitForSeconds(3f);
+        isDeath = true;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("CottonCandy") && isEating)
@@ -171,7 +188,13 @@ public class RaccoonController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if (other.gameObject.CompareTag("Rain"))
+        
+        */
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Sprinkler"))
         {
             if (levelManager.cottonCandyCount >= 1)
             {
@@ -179,14 +202,10 @@ public class RaccoonController : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                StartCoroutine(Die());
+                //Destroy(gameObject);
             }
         }
-        */
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
         /*
         if (other.gameObject.CompareTag("CottonCandy"))
         {
