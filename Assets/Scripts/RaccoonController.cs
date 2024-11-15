@@ -46,8 +46,6 @@ public class RaccoonController : MonoBehaviour
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int IsDead = Animator.StringToHash("IsDead");
     
-    
-    float smooth = 5.0f;
     float tiltAngle = 60.0f;
 
     void Update()

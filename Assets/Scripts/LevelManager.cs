@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
+       //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
     }
 
