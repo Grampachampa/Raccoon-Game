@@ -42,6 +42,9 @@ public class RaccoonController : MonoBehaviour
     private static readonly int IsSwimming = Animator.StringToHash("IsSwimming");
     private static readonly int IsEating = Animator.StringToHash("IsEating");
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    
+    float smooth = 5.0f;
+    float tiltAngle = 60.0f;
 
     void Update()
     {
@@ -87,6 +90,19 @@ public class RaccoonController : MonoBehaviour
 
         // Move the character
         controller.Move(movement * (currentSpeed * Time.deltaTime));
+        
+        Vector3 movementDirection = new Vector3(movement.x, 0, movement.z);
+        movementDirection.Normalize();
+        
+        transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
+
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltAngle * Time.deltaTime);
+        }
+        
 
         // Trigger eating animation on right-click
         if (Input.GetKey(KeyCode.E))
@@ -168,16 +184,23 @@ public class RaccoonController : MonoBehaviour
         }
         */
     }
-    
-    /*
 
     private void OnTriggerEnter(Collider other)
     {
+        /*
+        if (other.gameObject.CompareTag("CottonCandy"))
+        {
+            Destroy(other.gameObject);
+            levelManager.cottonCandyCount++;
+        } // not sure if also wanna add this
+        */
+        /*
         if (other.gameObject.CompareTag("PotHole"))
         {
             //enter the new level
         }
+        */
     }
-    */
+    
 }
 
