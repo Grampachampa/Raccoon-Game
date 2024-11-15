@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0fe05ba-52f3-40d3-9b9e-1ed4171aac22" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Effects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Effects/Water.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Effects/Water.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerCone.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerCone.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithWater.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithWater.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SprinklerController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SprinklerController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Materials/MA_Cotton_Candy_Stick.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Materials/MA_Cotton_Candy_Stick.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sprinkler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sprinkler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Project Configuration/SampleScene.scenetemplate" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Project Configuration/SampleScene.scenetemplate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,19 +34,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;turkanbadalzade&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Grampachampa/Raccoon-Game&quot;,
-    &quot;accountId&quot;: &quot;5fcee725-f473-4b47-8be5-5986c95c148b&quot;
-  }
-}</component>
-  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -36,18 +42,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.51f1/Unity.app/Contents/MacOS/Unity" />
@@ -95,23 +101,12 @@
       <option name="presentableId" value="Default" />
       <updated>1730838833305</updated>
       <workItem from="1730838834499" duration="2665000" />
-      <workItem from="1731696369898" duration="366000" />
     </task>
-    <task id="LOCAL-00001" summary="added dash and animations">
-      <option name="closed" value="true" />
-      <created>1731100103952</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1731100103952</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
@@ -119,20 +114,8 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
