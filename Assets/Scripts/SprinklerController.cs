@@ -19,8 +19,6 @@ public class SprinklerController : MonoBehaviour
     private AudioSource sprinklerAudio;
 
     private bool didOnce = false;
-
-    [SerializeField] private int puddleSpawnChance = 100;
     
     void Start()
     {
