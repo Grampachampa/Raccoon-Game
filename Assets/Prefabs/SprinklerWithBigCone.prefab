@@ -61,13 +61,48 @@ PrefabInstance:
     - target: {fileID: 5483737837832215094, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}
       propertyPath: m_Name
-      value: SprinklerWithWater 1
+      value: SprinklerWithBigCone
       objectReference: {fileID: 0}
     - target: {fileID: 6276569765220989923, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}
       propertyPath: m_StaticShadowCaster
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: puddlePrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: puddlePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: f48ba38af50980a4db93f36395c2b028,
+        type: 3}
+    - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: puddlePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 64155b833014c0d478d671f908dee426,
+        type: 3}
+    - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: puddlePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: d057f0a147ca38144b1620bb797efcba,
+        type: 3}
+    - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: puddlePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 7cc8ce7921b0fdd4ba455ffa96970a0f,
+        type: 3}
+    - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: puddlePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: ec06c008f5424654ba9a3fe8a82307b1,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
