@@ -176,21 +176,23 @@ public class RaccoonController : MonoBehaviour
             Destroy(other.gameObject);
             levelManager.cottonCandyCount++;
         }
-        /*
+        
         if (other.gameObject.CompareTag("Puddle"))
         {
             if (levelManager.cottonCandyCount >= 1)
             {
-                levelManager.cottonCandyCount--;
-                currentSpeed = slowSpeed;
+                if (levelManager.cottonCandyCount >= 1 && !isDashing)
+                {
+                    levelManager.cottonCandyCount--;
+                    currentSpeed = slowSpeed;
+                }
             }
             else
             {
-                Destroy(gameObject);
+                StartCoroutine(Die());
             }
         }
         
-        */
     }
 
     private void OnTriggerEnter(Collider other)
