@@ -230,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 5139159331327688844, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.68859345
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5139159331327688844, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}
@@ -275,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 5483737837832215094, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}
       propertyPath: m_Name
-      value: SprinklerWithCone 1 1
+      value: SprinklerWithSmallCone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
