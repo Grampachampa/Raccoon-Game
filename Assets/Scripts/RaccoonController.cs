@@ -66,7 +66,8 @@ public class RaccoonController : MonoBehaviour
 
         if (isDeath)
         {
-            Destroy(gameObject);
+            return;
+           
         }
         
         float x = Input.GetAxis("Horizontal");
@@ -173,9 +174,11 @@ public class RaccoonController : MonoBehaviour
 
     private IEnumerator Die()
     {
-        playerAnimator.SetBool(IsDead, true);
-        yield return new WaitForSeconds(3f);
         isDeath = true;
+        playerAnimator.SetBool(IsWalking, false);
+        playerAnimator.SetBool(IsDead, true);
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 
     private void OnTriggerStay(Collider other)
