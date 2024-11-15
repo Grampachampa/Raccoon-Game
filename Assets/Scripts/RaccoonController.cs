@@ -31,6 +31,8 @@ public class RaccoonController : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
     private bool isEating = false;
+    private bool isDeath = false;
+    
     
     public float speed = 2f;
     public float slowSpeed = 1f;
@@ -42,6 +44,9 @@ public class RaccoonController : MonoBehaviour
     private static readonly int IsSwimming = Animator.StringToHash("IsSwimming");
     private static readonly int IsEating = Animator.StringToHash("IsEating");
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int IsDead = Animator.StringToHash("IsDead");
+    
+    float tiltAngle = 60.0f;
 
     void Update()
     {
@@ -49,6 +54,12 @@ public class RaccoonController : MonoBehaviour
         {
             return;
         }
+
+        if (isDeath)
+        {
+            Destroy(gameObject);
+        }
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -87,6 +98,19 @@ public class RaccoonController : MonoBehaviour
 
         // Move the character
         controller.Move(movement * (currentSpeed * Time.deltaTime));
+        
+        Vector3 movementDirection = new Vector3(movement.x, 0, movement.z);
+        movementDirection.Normalize();
+        
+        transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
+
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltAngle * Time.deltaTime);
+        }
+        
 
         // Trigger eating animation on right-click
         if (Input.GetKey(KeyCode.E))
@@ -135,6 +159,13 @@ public class RaccoonController : MonoBehaviour
         canDash = true;
     }
 
+    private IEnumerator Die()
+    {
+        playerAnimator.SetBool(IsDead, true);
+        yield return new WaitForSeconds(3f);
+        isDeath = true;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("CottonCandy") && isEating)
@@ -155,7 +186,13 @@ public class RaccoonController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if (other.gameObject.CompareTag("Rain"))
+        
+        */
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Sprinkler"))
         {
             if (levelManager.cottonCandyCount >= 1)
             {
@@ -163,21 +200,24 @@ public class RaccoonController : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                StartCoroutine(Die());
+                //Destroy(gameObject);
             }
         }
+        /*
+        if (other.gameObject.CompareTag("CottonCandy"))
+        {
+            Destroy(other.gameObject);
+            levelManager.cottonCandyCount++;
+        } // not sure if also wanna add this
         */
-    }
-    
-    /*
-
-    private void OnTriggerEnter(Collider other)
-    {
+        /*
         if (other.gameObject.CompareTag("PotHole"))
         {
             //enter the new level
         }
+        */
     }
-    */
+    
 }
 
