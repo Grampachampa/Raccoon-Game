@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9180812888854645597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8207657206617250518}
+  - component: {fileID: 8623304869900146460}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8207657206617250518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180812888854645597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8623304869900146460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180812888854645597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1190ceb3b98c24c418a02a7e75118c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fences1:
+  - {fileID: 2383897335418973032, guid: 3e282151fc0484442b3637fed34e21f6, type: 3}
+  - {fileID: 2498242527655461122, guid: 6b4939e0d9856d542babd8f11194a051, type: 3}
+  - {fileID: 7040250998837274967, guid: ccc54269a5a38aa4cae316ab7d5dfcc3, type: 3}
+  fences2:
+  - {fileID: 6530421772691666427, guid: 7bdff308d171b27438de56f7cb02644b, type: 3}
+  - {fileID: 79674657978830244, guid: b497276f4fdc25b47bf8e4b556f69b97, type: 3}
+  - {fileID: 6958428140643264917, guid: a6ab2a883e6a8164d945fff85a7ae929, type: 3}
+  hedges:
+  - {fileID: 3013524866704030849, guid: b36812acbd8e7f14f8da303705f47496, type: 3}
+  - {fileID: 4742937940918612964, guid: 69d7ca4c62801894381e0788ea004461, type: 3}
+  - {fileID: 3345087079532695970, guid: e2b5eb94ef9411345899f9685833434b, type: 3}
+  houses:
+  - {fileID: 2883663203997316277, guid: c3403c0cd724f5e478354b36d1bfbbc1, type: 3}
+  - {fileID: 2143268052139255768, guid: 908fef93718c379468ceae6fefa2d7d5, type: 3}
+  floor: {fileID: 9016379231851070350, guid: 63e626537c4f43840846d41d1c9487d4, type: 3}
