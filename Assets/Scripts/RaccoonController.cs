@@ -235,6 +235,7 @@ public class RaccoonController : MonoBehaviour
         if (other.gameObject.CompareTag("PotHole"))
         {
             //enter the new level
+            levelManager.enterNewLevel()
         }
         */
     }
