@@ -131,7 +131,16 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   controller: {fileID: -5551933879292960621}
   playerAnimator: {fileID: 512172159506703078}
+  trailRenderer: {fileID: 0}
   speed: 2
+  slowSpeed: 1
+  currentSpeed: 0
+  levelManager: {fileID: 0}
+  dashSounds: []
+  grassSounds:
+  - {fileID: 8300000, guid: cfd9106d6d7b7474d8ef201012fe7c36, type: 3}
+  - {fileID: 8300000, guid: 64547ca61d2f34248a80300cd40bce38, type: 3}
+  - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
 --- !u!143 &-5551933879292960621
 CharacterController:
   m_ObjectHideFlags: 0
