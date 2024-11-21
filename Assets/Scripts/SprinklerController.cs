@@ -25,10 +25,19 @@ public class SprinklerController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         
         sprinklerAudio = GetComponent<AudioSource>();
-        sprinklerAudio.volume = 1.0f;
-        sprinklerAudio.spatialBlend = 0f; 
-        sprinklerAudio.maxDistance = 5.0f;
+        sprinklerAudio.loop = true;
+        sprinklerAudio.volume = 0.15f;
+        sprinklerAudio.spatialBlend = 0.8f; 
         
+        sprinklerAudio.clip = sprinklerSounds[Random.Range(0, sprinklerSounds.Length)];
+        if (sprinklerSounds[Random.Range(0, sprinklerSounds.Length)] != null)
+        {
+            sprinklerAudio.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No sprinkler sound played!");
+        }
     }
 
     void Update()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RaccoonController : MonoBehaviour
 {
@@ -39,7 +40,9 @@ public class RaccoonController : MonoBehaviour
     public float currentSpeed;
     public LevelManager levelManager;
     
-    
+    [SerializeField] private AudioClip[] dashSounds;
+    private AudioSource movementAudio;
+    private AudioSource raccoonAudio;
     
     private static readonly int IsSwimming = Animator.StringToHash("IsSwimming");
     private static readonly int IsEating = Animator.StringToHash("IsEating");
@@ -48,6 +51,12 @@ public class RaccoonController : MonoBehaviour
     
     float tiltAngle = 60.0f;
 
+    void Start()
+    {
+        movementAudio = GetComponents<AudioSource>()[0];
+        raccoonAudio = GetComponents<AudioSource>()[1];
+    }
+    
     void Update()
     {
         if (isDashing)
@@ -140,6 +149,9 @@ public class RaccoonController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        raccoonAudio.clip = dashSounds[Random.Range(0, dashSounds.Length)];
+        raccoonAudio.Play();
+        
         canDash = false;
         isDashing = true;
         float originalGravity = gravity; // change this
@@ -152,7 +164,7 @@ public class RaccoonController : MonoBehaviour
             controller.Move(dashDirection * Time.deltaTime);
             yield return null; 
         }
-
+        
         trailRenderer.emitting = false;
         gravity = originalGravity;
         isDashing = false;
