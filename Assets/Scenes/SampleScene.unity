@@ -5558,6 +5558,11 @@ PrefabInstance:
       objectReference: {fileID: 610630021}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
+      propertyPath: rotationSpeed
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
       propertyPath: trailRenderer
       value: 
       objectReference: {fileID: 1342009844}

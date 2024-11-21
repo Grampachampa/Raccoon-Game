@@ -38,6 +38,8 @@ public class RaccoonController : MonoBehaviour
     public float speed = 2f;
     public float slowSpeed = 1f;
     public float currentSpeed;
+    public float rotationSpeed = 800f;
+    
     public LevelManager levelManager;
     
     [SerializeField] private AudioClip[] dashSounds;
@@ -119,7 +121,7 @@ public class RaccoonController : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltAngle * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
         
 
@@ -190,25 +192,39 @@ public class RaccoonController : MonoBehaviour
             Destroy(other.gameObject);
             levelManager.cottonCandyCount++;
         }
-        /*
-        if (other.gameObject.CompareTag("Puddle"))
-        {
-            if (levelManager.cottonCandyCount >= 1)
-            {
-                levelManager.cottonCandyCount--;
-                currentSpeed = slowSpeed;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
         
-        */
+<<<<<<< HEAD
+        
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
+=======
+>>>>>>> 8b272a32135728af67faa55bd7ee7e46a541857f
+        if (other.gameObject.CompareTag("Puddle"))
+        {
+            if (levelManager.cottonCandyCount >= 1)
+            {
+                if (levelManager.cottonCandyCount >= 1 && !isDashing)
+                {
+                    levelManager.cottonCandyCount--;
+                    currentSpeed = slowSpeed;
+                }
+            }
+            else
+            {
+                StartCoroutine(Die());
+            }
+        }
+<<<<<<< HEAD
+=======
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+>>>>>>> 8b272a32135728af67faa55bd7ee7e46a541857f
         if (other.gameObject.CompareTag("Sprinkler"))
         {
             if (levelManager.cottonCandyCount >= 1 && !isDashing)
