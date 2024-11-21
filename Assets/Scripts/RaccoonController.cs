@@ -44,6 +44,9 @@ public class RaccoonController : MonoBehaviour
     
     [SerializeField] private AudioClip[] dashSounds;
     [SerializeField] private AudioClip[] grassSounds;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip dropSound;
+    
     private AudioSource movementAudio;
     private AudioSource raccoonAudio;
     
@@ -178,6 +181,11 @@ public class RaccoonController : MonoBehaviour
 
     private IEnumerator Die()
     {
+        raccoonAudio.volume = 0.8f;
+        raccoonAudio.clip = deathSound;
+        raccoonAudio.Play();
+        playerAnimator.SetBool(IsDead, true);
+        yield return new WaitForSeconds(3f);
         isDeath = true;
         playerAnimator.SetBool(IsWalking, false);
         playerAnimator.SetBool(IsDead, true);
@@ -193,15 +201,12 @@ public class RaccoonController : MonoBehaviour
             levelManager.cottonCandyCount++;
         }
         
-<<<<<<< HEAD
         
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-=======
->>>>>>> 8b272a32135728af67faa55bd7ee7e46a541857f
         if (other.gameObject.CompareTag("Puddle"))
         {
             if (levelManager.cottonCandyCount >= 1)
@@ -217,14 +222,6 @@ public class RaccoonController : MonoBehaviour
                 StartCoroutine(Die());
             }
         }
-<<<<<<< HEAD
-=======
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
->>>>>>> 8b272a32135728af67faa55bd7ee7e46a541857f
         if (other.gameObject.CompareTag("Sprinkler"))
         {
             if (levelManager.cottonCandyCount >= 1 && !isDashing)
@@ -257,6 +254,13 @@ public class RaccoonController : MonoBehaviour
         movementAudio.volume = 0.8f;
         movementAudio.pitch = Random.Range(1f, 2f);
         movementAudio.clip = grassSounds[Random.Range(0, grassSounds.Length)];
+        movementAudio.Play();
+    }
+    
+    public void hitGrass()
+    {
+        movementAudio.volume = 0.8f;
+        movementAudio.clip = dropSound;
         movementAudio.Play();
     }
     
