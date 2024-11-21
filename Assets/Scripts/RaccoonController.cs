@@ -38,6 +38,8 @@ public class RaccoonController : MonoBehaviour
     public float speed = 2f;
     public float slowSpeed = 1f;
     public float currentSpeed;
+    public float rotationSpeed = 800f;
+    
     public LevelManager levelManager;
     
     [SerializeField] private AudioClip[] dashSounds;
@@ -118,7 +120,7 @@ public class RaccoonController : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltAngle * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
         
 
@@ -189,6 +191,12 @@ public class RaccoonController : MonoBehaviour
             levelManager.cottonCandyCount++;
         }
         
+        
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.CompareTag("Puddle"))
         {
             if (levelManager.cottonCandyCount >= 1)
@@ -204,11 +212,6 @@ public class RaccoonController : MonoBehaviour
                 StartCoroutine(Die());
             }
         }
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
         if (other.gameObject.CompareTag("Sprinkler"))
         {
             if (levelManager.cottonCandyCount >= 1 && !isDashing)
