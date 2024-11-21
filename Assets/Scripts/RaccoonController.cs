@@ -200,12 +200,6 @@ public class RaccoonController : MonoBehaviour
             Destroy(other.gameObject);
             levelManager.cottonCandyCount++;
         }
-        
-<<<<<<< HEAD
-=======
-        
-        
->>>>>>> 270865a1c9a75d63580a151423bf3b4bbdbeef68
     }
 
     private void OnTriggerEnter(Collider other)
