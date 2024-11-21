@@ -191,12 +191,15 @@ public class RaccoonController : MonoBehaviour
             levelManager.cottonCandyCount++;
         }
         
+<<<<<<< HEAD
         
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
+=======
+>>>>>>> 8b272a32135728af67faa55bd7ee7e46a541857f
         if (other.gameObject.CompareTag("Puddle"))
         {
             if (levelManager.cottonCandyCount >= 1)
@@ -212,6 +215,14 @@ public class RaccoonController : MonoBehaviour
                 StartCoroutine(Die());
             }
         }
+<<<<<<< HEAD
+=======
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+>>>>>>> 8b272a32135728af67faa55bd7ee7e46a541857f
         if (other.gameObject.CompareTag("Sprinkler"))
         {
             if (levelManager.cottonCandyCount >= 1 && !isDashing)
