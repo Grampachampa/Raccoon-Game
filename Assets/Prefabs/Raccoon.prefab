@@ -775,6 +775,7 @@ MonoBehaviour:
   speed: 2
   slowSpeed: 1
   currentSpeed: 0
+  rotationSpeed: 800
   levelManager: {fileID: 0}
   dashSounds:
   - {fileID: 8300000, guid: bad36d5e6a6e3451b8b72a2e9d1de9dd, type: 3}
@@ -785,6 +786,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
   deathSound: {fileID: 8300000, guid: 335daf587aa02487fbd55ffd90491f4c, type: 3}
   dropSound: {fileID: 8300000, guid: f1378f6e3708447a3bd0d368e9a88240, type: 3}
+  eatingSound: {fileID: 8300000, guid: 08b3098c6dc1742e690eaceed159091c, type: 3}
 --- !u!143 &4374434889144319196
 CharacterController:
   m_ObjectHideFlags: 0

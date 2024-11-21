@@ -46,6 +46,7 @@ public class RaccoonController : MonoBehaviour
     [SerializeField] private AudioClip[] grassSounds;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip dropSound;
+    [SerializeField] private AudioClip eatingSound;
     
     private AudioSource movementAudio;
     private AudioSource raccoonAudio;
@@ -197,6 +198,9 @@ public class RaccoonController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CottonCandy") && isEating)
         {
+            raccoonAudio.volume = 0.8f;
+            raccoonAudio.clip = eatingSound;
+            raccoonAudio.Play();
             Destroy(other.gameObject);
             levelManager.cottonCandyCount++;
         }
