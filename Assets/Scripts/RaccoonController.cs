@@ -41,6 +41,7 @@ public class RaccoonController : MonoBehaviour
     public LevelManager levelManager;
     
     [SerializeField] private AudioClip[] dashSounds;
+    [SerializeField] private AudioClip[] grassSounds;
     private AudioSource movementAudio;
     private AudioSource raccoonAudio;
     
@@ -149,8 +150,9 @@ public class RaccoonController : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        raccoonAudio.clip = dashSounds[Random.Range(0, dashSounds.Length)];
-        raccoonAudio.Play();
+        movementAudio.volume = 0.3f;
+        movementAudio.clip = dashSounds[Random.Range(0, dashSounds.Length)];
+        movementAudio.Play();
         
         canDash = false;
         isDashing = true;
@@ -232,6 +234,14 @@ public class RaccoonController : MonoBehaviour
             //enter the new level
         }
         */
+    }
+    
+    public void footstep()
+    {
+        movementAudio.volume = 0.8f;
+        movementAudio.pitch = Random.Range(1f, 2f);
+        movementAudio.clip = grassSounds[Random.Range(0, grassSounds.Length)];
+        movementAudio.Play();
     }
     
 }
