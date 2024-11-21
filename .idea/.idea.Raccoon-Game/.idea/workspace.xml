@@ -4,7 +4,84 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0fe05ba-52f3-40d3-9b9e-1ed4171aac22" name="Changes" comment="" />
+    <list default="true" id="e0fe05ba-52f3-40d3-9b9e-1ed4171aac22" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky Equirect.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky Equirect.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSky.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSkySettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSkySettings.lighting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSkySettings.lighting.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cartoon Base NightSky/Cartoon Base NightSkySettings.lighting.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night Equirect.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night Equirect.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold Night.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold NightSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold NightSettings.lighting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold NightSettings.lighting.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Cold Night/Cold NightSettings.lighting.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk Equirect.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk Equirect.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep Dusk.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep DuskSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep DuskSettings.lighting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep DuskSettings.lighting.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Deep Dusk/Deep DuskSettings.lighting.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/AdditiveSprite.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/AdditiveSprite.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/AllSkyFreeDemoEnvironment.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/AllSkyFreeDemoEnvironment.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Moon Glare.flare" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Moon Glare.flare" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/MoonGlow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/MoonGlow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Mountain Glare.flare" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Mountain Glare.flare" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Sun Glare.flare" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/Sun Glare.flare" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/SunGlow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/_AllSkyFreeDemoEnvironment/SunGlow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects/Water.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects/Water.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Materials/MA_Cotton_Candy_Stick.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Materials/MA_Cotton_Candy_Stick.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cotton Candy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cotton Candy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Raccoon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Raccoon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sprinkler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sprinkler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SprinklerCone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerCone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SprinklerCone.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerCone.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithBigCone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithBigCone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithBigCone.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithBigCone.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithSmallCone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithSmallCone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithSmallCone.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SprinklerWithSmallCone.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle2.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle2.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle3.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle3.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle4.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle4.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/puddle5.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/puddle5.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Animations/AC_Raccoon_new.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Animations/AC_Raccoon_new.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Animations/AC_Raccoon_new.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Animations/AC_Raccoon_new.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Prefabs/Raccoon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Prefabs/Raccoon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUIManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUIManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SprinklerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SprinklerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Project Configuration/SampleScene.scenetemplate" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Project Configuration/SampleScene.scenetemplate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/dash1.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/dash1.wav.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/dash2.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/dash2.wav.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-1-101282.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-1-101282.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-2-101283.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-2-101283.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-3-101284.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-3-101284.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-4-101281.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/rustling-grass-4-101281.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/sprinkler.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sounds/sprinkler.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/XRDeviceSimulatorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/XRDeviceSimulatorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/XRDeviceSimulatorSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/XRDeviceSimulatorSettings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/XRInteractionEditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/XRInteractionEditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/XRInteractionEditorSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/XRInteractionEditorSettings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +90,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -21,21 +102,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "turkan",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;zonne&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.51f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\2022.3.51f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;$PROJECT_DIR$&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -43,7 +124,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.51f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\2022.3.51f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;$PROJECT_DIR$&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -82,6 +163,8 @@
       <workItem from="1730838834499" duration="2665000" />
       <workItem from="1731091884261" duration="7480000" />
       <workItem from="1731446606843" duration="1083000" />
+      <workItem from="1732047273562" duration="502000" />
+      <workItem from="1732047812326" duration="1561000" />
     </task>
     <servers />
   </component>
@@ -95,6 +178,17 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
