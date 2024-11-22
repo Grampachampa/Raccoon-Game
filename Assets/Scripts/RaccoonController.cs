@@ -28,7 +28,7 @@ public class RaccoonController : MonoBehaviour
     
     private bool canDash = true;
     private bool isDashing = false;
-    private float dashingPower = 10f;
+    private float dashingPower = 15f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
     private bool isEating = false;
@@ -77,8 +77,8 @@ public class RaccoonController : MonoBehaviour
            
         }
         
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         // Get camera-relative directions for movement
         Vector3 camForward = mainCamera.transform.forward;
