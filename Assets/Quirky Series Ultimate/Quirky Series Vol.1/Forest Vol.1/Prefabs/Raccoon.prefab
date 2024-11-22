@@ -112,10 +112,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22499341
+  m_Radius: 0.56249934
   m_Height: 0.9700697
   m_Direction: 2
-  m_Center: {x: -0.00035232306, y: 0.37561816, z: 0.15284833}
+  m_Center: {x: -0.00035232306, y: 0.34, z: 0.05}
 --- !u!114 &4496632125703637844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,8 +132,6 @@ MonoBehaviour:
   controller: {fileID: -5551933879292960621}
   playerAnimator: {fileID: 512172159506703078}
   trailRenderer: {fileID: 0}
-  speed: 2
-  slowSpeed: 1
   currentSpeed: 0
   levelManager: {fileID: 0}
   dashSounds: []
@@ -141,6 +139,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cfd9106d6d7b7474d8ef201012fe7c36, type: 3}
   - {fileID: 8300000, guid: 64547ca61d2f34248a80300cd40bce38, type: 3}
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
+  deathSound: {fileID: 0}
+  dropSound: {fileID: 0}
 --- !u!143 &-5551933879292960621
 CharacterController:
   m_ObjectHideFlags: 0
