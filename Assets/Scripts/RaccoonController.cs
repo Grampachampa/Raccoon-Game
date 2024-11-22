@@ -55,7 +55,6 @@ public class RaccoonController : MonoBehaviour
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int IsDead = Animator.StringToHash("IsDead");
     
-    float tiltAngle = 60.0f;
 
     void Start()
     {
@@ -198,42 +197,41 @@ public class RaccoonController : MonoBehaviour
         if (other.gameObject.CompareTag("CottonCandy") && isEating)
         {
             Destroy(other.gameObject);
-            levelManager.cottonCandyCount++;
+            levelManager.hp += 60;
         }
         if (other.gameObject.CompareTag("Puddle"))
         {
-            if (levelManager.cottonCandyCount >= 1 && !isDashing)
+            if (levelManager.hp >= 0.01 && !isDashing)
             {
                 currentSpeed = slowSpeed;
+                levelManager.hp--;
+            }
+            else if (levelManager.hp <= 0)
+            {
+                StartCoroutine(Die());
+                //Destroy(gameObject);
+            }
+        }
+        if (other.gameObject.CompareTag("Sprinkler"))
+        {
+            if (levelManager.hp >= 0.01 && !isDashing)
+            {
+                levelManager.hp--;
+            }
+            else if (levelManager.hp <= 0)
+            {
+                StartCoroutine(Die());
+                //Destroy(gameObject);
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Puddle"))
-        {
-            if (levelManager.cottonCandyCount >= 1 && !isDashing)
-            {
-                    levelManager.cottonCandyCount--;
-            }
-            else if (levelManager.cottonCandyCount <= 0)
-            {
-                StartCoroutine(Die());
-            }
-        }
-        if (other.gameObject.CompareTag("Sprinkler"))
-        {
-            if (levelManager.cottonCandyCount >= 1 && !isDashing)
-            {
-                levelManager.cottonCandyCount--;
-            }
-            else if (levelManager.cottonCandyCount <= 0)
-            {
-                StartCoroutine(Die());
-                //Destroy(gameObject);
-            }
-        }
+       
+        
+       
+       
         /*
         if (other.gameObject.CompareTag("CottonCandy"))
         {

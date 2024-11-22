@@ -1213,7 +1213,7 @@ PrefabInstance:
     - target: {fileID: 4765968629863107041, guid: 0d635272a6b154c388593354df0067e4,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 738
+      value: 747
       objectReference: {fileID: 0}
     - target: {fileID: 5127728877555522252, guid: 0d635272a6b154c388593354df0067e4,
         type: 3}
@@ -1301,7 +1301,7 @@ PrefabInstance:
     - target: {fileID: 4765968629863107041, guid: 0d635272a6b154c388593354df0067e4,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 750
+      value: 759
       objectReference: {fileID: 0}
     - target: {fileID: 5127728877555522252, guid: 0d635272a6b154c388593354df0067e4,
         type: 3}
@@ -2010,7 +2010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea45f36a1704a8a8443de4411365d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cottonCandyCount: 0
+  hp: 60
+  cottonCandyCount: 1
 --- !u!4 &610630022
 Transform:
   m_ObjectHideFlags: 0
@@ -5543,13 +5544,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 512172159506703073, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
+      propertyPath: m_Height
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 512172159506703073, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
       propertyPath: m_Radius
-      value: 0.4
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 512172159506703073, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 512172159506703073, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.3
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 512172159506703073, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 512172159506703077, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}

@@ -5,7 +5,10 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     private GUIManager GUI;
-    public int cottonCandyCount;
+    
+
+    public int hp = 60 ;
+    public float cottonCandyCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cottonCandyCount = hp / 60f;
         if (cottonCandyCount < 0)
         {
             endGame();

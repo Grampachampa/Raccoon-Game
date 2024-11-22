@@ -772,8 +772,6 @@ MonoBehaviour:
   controller: {fileID: 4374434889144319196}
   playerAnimator: {fileID: 4690034466703811844}
   trailRenderer: {fileID: 4325637816661618848}
-  speed: 2
-  slowSpeed: 1
   currentSpeed: 0
   levelManager: {fileID: 0}
   dashSounds:
@@ -807,7 +805,7 @@ CharacterController:
   m_Height: 0.5
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.03
   m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
