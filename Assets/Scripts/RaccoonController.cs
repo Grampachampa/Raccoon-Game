@@ -46,6 +46,7 @@ public class RaccoonController : MonoBehaviour
     [SerializeField] private AudioClip[] grassSounds;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip dropSound;
+    [SerializeField] private AudioClip eatingSound;
     
     private AudioSource movementAudio;
     private AudioSource raccoonAudio;
