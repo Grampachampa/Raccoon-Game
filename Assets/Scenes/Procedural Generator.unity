@@ -402,6 +402,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6530421772691666427, guid: 7bdff308d171b27438de56f7cb02644b,
         type: 3}
+    - target: {fileID: 8623304869900146460, guid: 526acb2f8f5d07d489816afffb9be313,
+        type: 3}
+      propertyPath: obstacleObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623304869900146460, guid: 526acb2f8f5d07d489816afffb9be313,
+        type: 3}
+      propertyPath: obstacleObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 6964933120010374663, guid: 762d9db99d23f5b44a2af5ec1c608566,
+        type: 3}
+    - target: {fileID: 8623304869900146460, guid: 526acb2f8f5d07d489816afffb9be313,
+        type: 3}
+      propertyPath: obstacleObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8879592413926446102, guid: 111379b56fc715f4f8f249bbd2f6d70f,
+        type: 3}
     - target: {fileID: 9180812888854645597, guid: 526acb2f8f5d07d489816afffb9be313,
         type: 3}
       propertyPath: m_Name

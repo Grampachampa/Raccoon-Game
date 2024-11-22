@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
@@ -17,6 +18,30 @@ public class BoundsGenerator : MonoBehaviour
 
     [SerializeField] GameObject[] houses;
     [SerializeField] GameObject floor;
+    [SerializeField] GameObject[] obstacleObjects;
+
+    public struct GameObjectData {
+        public GameObject obj;
+        public float mean;
+        public RotationMode rotation;
+        public float stdDev;
+        public float houseBias;
+    };
+
+    public struct FreeSpaces {
+        public int x;
+        public int y;
+    };
+
+    public enum RotationMode {
+        Random,
+        NearestWall,
+        House,
+        Up,
+        Down,
+        Left,
+        Right
+    };
 
     GameObject[][] allWalls;
     GameObject[] chosenWalls;
@@ -38,15 +63,20 @@ public class BoundsGenerator : MonoBehaviour
     int length;
 
     GameObject root;
-    
+    List<FreeSpaces> freeSpacesList = new List<FreeSpaces>();
 
     GridState[,] grid;
+    GameObjectData[] obstacles;
+
+    
     public enum GridState
     {
         EmptyAvailable,
         EmptyOuter,
-        EmptyUnavailable,
-        Occupied
+        WallPadding,
+        Wall,
+        GameObject,
+        ObjectPadding
     }
 
     List<int> widths = new List<int>();
@@ -56,9 +86,82 @@ public class BoundsGenerator : MonoBehaviour
     {
         root = new GameObject("Root");
         root.transform.position = Vector3.zero;
+        obstacles = new GameObjectData[] {
+            new GameObjectData{obj = obstacleObjects[0], rotation = RotationMode.Random, mean = 3, stdDev = 0.5f, houseBias = 0.5f},
+            new GameObjectData{obj = obstacleObjects[1], rotation = RotationMode.Random, mean = 3, stdDev = 15f, houseBias = 0.5f}
+        };
 
         GenerateMap();
+        GenerateObstacles();
         VisualizeGrid();
+    }
+
+    void GenerateObstacles(){
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            GameObjectData go = obstacles[i];
+            // Generate two independent random numbers uniformly distributed in (0, 1)
+            float u1 = Random.Range(0f,1f); // Random value between 0 and 1
+            float u2 = Random.Range(0f,1f); // Another random value between 0 and 1
+
+            // Apply the Box-Muller transform
+            double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
+
+            // Scale to the desired mean and standard deviation
+            double randNormal = go.mean + go.stdDev * randStdNormal;
+
+            // Convert to an integer
+            int num_instances = Math.Clamp((int)Math.Round(randNormal), 0, 50);
+            for (int j = 0; j < num_instances; j++)
+            { 
+                FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+                grid[space.x, space.y] = GridState.GameObject;
+                freeSpacesList.Remove(space);
+
+                UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter}, GridState.ObjectPadding);
+
+                Vector3 pos = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
+
+                Quaternion rotation = CalculateRotation(go.rotation, space);
+                Instantiate(obstacles[i].obj, pos, rotation, root.transform);}            
+        }
+
+    }
+
+    Quaternion CalculateRotation(RotationMode rotation, FreeSpaces position){
+
+        if (rotation == RotationMode.Random)
+        {
+            return Quaternion.Euler(0, Random.Range(0, 360), 0);
+        }
+        else if (rotation == RotationMode.NearestWall)
+        {
+            return Quaternion.Euler(0, 0, 0);
+        }
+        else if (rotation == RotationMode.House)
+        {
+            return Quaternion.Euler(0, 0, 0);
+        }
+        else if (rotation == RotationMode.Up)
+        {
+            return Quaternion.Euler(0, 0, 0);
+        }
+        else if (rotation == RotationMode.Down)
+        {
+            return Quaternion.Euler(0, 180, 0);
+        }
+        else if (rotation == RotationMode.Left)
+        {
+            return Quaternion.Euler(0, 270, 0);
+        }
+        else if (rotation == RotationMode.Right)
+        {
+            return Quaternion.Euler(0, 90, 0);
+        }
+        else
+        {
+            return Quaternion.Euler(0, 0, 0);
+        }
     }
 
     void VisualizeGrid(){
@@ -69,13 +172,13 @@ public class BoundsGenerator : MonoBehaviour
             for (int j = 0; j < grid.GetLength(1); j++)
             {
                 Vector3 pos = new Vector3(i - maxWidth - wPadding, grid_height, house_pos - j + 3/2 + 1 + lPadding);
-                if (grid[i, j] == GridState.Occupied)
+                if (grid[i, j] == GridState.Wall)
                 {
                     SpawnPrimitiveCube(pos, new Vector3(1, 1, 1), Color.red);
                 } else if (grid[i, j] == GridState.EmptyOuter)
                 {
                     SpawnPrimitiveCube(pos, new Vector3(1, 1, 1), Color.blue);
-                } else if (grid[i, j] == GridState.EmptyUnavailable)
+                } else if (grid[i, j] == GridState.WallPadding)
                 {
                     SpawnPrimitiveCube(pos, new Vector3(1, 1, 1), Color.yellow);
                 }
@@ -83,8 +186,18 @@ public class BoundsGenerator : MonoBehaviour
                 {
                     SpawnPrimitiveCube(pos, new Vector3(1, 1, 1), Color.green);
                 }
+                else if (grid[i, j] == GridState.GameObject)
+                {
+                    SpawnPrimitiveCube(pos, new Vector3(1, 1, 1), Color.magenta);
+                }
+                else if (grid[i, j] == GridState.ObjectPadding)
+                {
+                    SpawnPrimitiveCube(pos, new Vector3(1, 1, 1), Color.cyan);
+                    }
+
             }
         }
+
     }
 
     void SpawnPrimitiveCube(Vector3 pos, Vector3 scale, Color color, bool translucent = false){
@@ -109,6 +222,8 @@ public class BoundsGenerator : MonoBehaviour
         MakeWalls();
         UpdateGrid();
         MakeFloor();
+
+
     }
 
     // Update is called once per frame
@@ -118,12 +233,25 @@ public class BoundsGenerator : MonoBehaviour
         {
             for (int j = 0; j < grid.GetLength(1); j++)
             {
-                if (grid[i, j] == GridState.Occupied)
+                if (grid[i, j] == GridState.Wall)
                 {
-                    UpdateSurroundingSquares(i, j, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter}, GridState.EmptyUnavailable);
+                    UpdateSurroundingSquares(i, j, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter}, GridState.WallPadding);
                 }
             }
         }
+
+        for (int i = 0; i < grid.GetLength(0); i++)
+        {
+            for (int j = 0; j < grid.GetLength(1); j++)
+            {
+                if (grid[i, j] == GridState.EmptyAvailable)
+                {
+                    freeSpacesList.Add(new FreeSpaces{x = i, y = j});
+                }
+            }
+        }
+
+
     }
 
     void UpdateSurroundingSquares(int x, int y, GridState[] oldStates, GridState newState){
@@ -227,8 +355,8 @@ public class BoundsGenerator : MonoBehaviour
             
             for (int j = 0; j < fence_length; j++)
             {
-                grid[widths[i] + maxWidth + wPadding, i+j + lPadding] = GridState.Occupied; // TODO: crashes sometimes???
-                grid[-widths[i] + maxWidth + wPadding, i+j + lPadding] = GridState.Occupied;
+                grid[widths[i] + maxWidth + wPadding, i+j + lPadding] = GridState.Wall; // TODO: crashes sometimes???
+                grid[-widths[i] + maxWidth + wPadding, i+j + lPadding] = GridState.Wall;
 
                 for (int k = 1; widths[i] + k < maxWidth + wPadding; k++)
                     {
@@ -252,9 +380,10 @@ public class BoundsGenerator : MonoBehaviour
                 while (progress < absDiff){
                     int segmentLen = Mathf.Clamp(3, 1, absDiff - progress);
                     GameObject wallToUse = WallLengths[segmentLen];
+                    int progressVal = diff > 0? progress: -progress;
 
-                    Vector3 negPos = new Vector3(-prev_width + progress, 0, house_pos - i - 3/2 + 3);
-                    Vector3 posPos = new Vector3(prev_width - progress, 0, house_pos - i - 3/2 + 3);
+                    Vector3 negPos = new Vector3(-prev_width - progressVal, 0, house_pos - i - 3/2 + 3);
+                    Vector3 posPos = new Vector3(prev_width + progressVal, 0, house_pos - i - 3/2 + 3);
 
                     Quaternion negRot = diff>0? Quaternion.identity: Quaternion.Euler(0, 180, 0);
                     Quaternion posRot = diff<0? Quaternion.identity: Quaternion.Euler(0, 180, 0);
@@ -265,8 +394,8 @@ public class BoundsGenerator : MonoBehaviour
                     for (int j = 0; j < segmentLen; j++)
                     {
                         offsetVal = diff > 0 ? j + progress : -j -progress;
-                        grid[prev_width + offsetVal + maxWidth + wPadding, i + lPadding] = GridState.Occupied;
-                        grid[-(prev_width + offsetVal) + maxWidth + wPadding, i + lPadding] = GridState.Occupied;}
+                        grid[prev_width + offsetVal + maxWidth + wPadding, i + lPadding] = GridState.Wall;
+                        grid[-(prev_width + offsetVal) + maxWidth + wPadding, i + lPadding] = GridState.Wall;}
                     
                     progress += segmentLen;
                 }
@@ -310,8 +439,8 @@ public class BoundsGenerator : MonoBehaviour
             for (int j = 0; j < wallLen; j++)
             {
                 Debug.Log("gridIndex: " + gridIndex);
-                grid[currentWidth + maxWidth + wPadding + j, gridIndex] = GridState.Occupied;
-                grid[-currentWidth + maxWidth + wPadding - j, gridIndex] = GridState.Occupied;
+                grid[currentWidth + maxWidth + wPadding + j, gridIndex] = GridState.Wall;
+                grid[-currentWidth + maxWidth + wPadding - j, gridIndex] = GridState.Wall;
             }
         }
 
