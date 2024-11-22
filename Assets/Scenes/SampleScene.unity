@@ -5775,6 +5775,11 @@ PrefabInstance:
     - target: {fileID: -5551933879292960621, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
       propertyPath: m_StepOffset
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -5551933879292960621, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: m_StepOffset
       value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 512172159506703072, guid: 1509ee1f4d01f834383f795748d29108,
