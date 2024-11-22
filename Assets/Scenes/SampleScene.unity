@@ -2125,7 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea45f36a1704a8a8443de4411365d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cottonCandyCount: 0
+  cottonCandyCount: 1
 --- !u!4 &610630022
 Transform:
   m_ObjectHideFlags: 0
@@ -5809,6 +5809,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Raccoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}

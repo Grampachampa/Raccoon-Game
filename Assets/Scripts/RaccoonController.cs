@@ -144,6 +144,14 @@ public class RaccoonController : MonoBehaviour
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime); 
+        
+        
+        // Check for game end
+        if (levelManager.cottonCandyCount <= 0)
+        {
+            StartCoroutine(Die());
+            //Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()

@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cottonCandyCount < 0)
+        if (cottonCandyCount <= 0)
         {
             endGame();
         }
