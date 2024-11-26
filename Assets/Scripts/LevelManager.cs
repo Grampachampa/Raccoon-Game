@@ -5,7 +5,10 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     private GUIManager GUI;
-    
+    private AudioSource globalAudio;
+
+    [SerializeField] private AudioClip[] levelMusic;
+
 
     public int hp = 60 ;
     public float cottonCandyCount;
@@ -14,6 +17,13 @@ public class LevelManager : MonoBehaviour
     {
        //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
+       // Setting up the level music
+       globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+
+        globalAudio.volume = 0.17f;
+        globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
+        globalAudio.loop = true;
+        globalAudio.Play();
     }
 
     // Update is called once per frame

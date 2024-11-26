@@ -110,10 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 36
-  sprinklerCone: {fileID: 6805044750389211605, guid: ab9196f444d0a4c47a54c2ba501f1878,
-    type: 3}
-  coneOffset: {x: 0, y: 0, z: 1}
   waterParticles: {fileID: 0}
+  puddlePrefabs: []
   sprinklerSounds: []
 --- !u!82 &-2043497010947441660
 AudioSource:
@@ -135,8 +133,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 2
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -171,7 +169,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
