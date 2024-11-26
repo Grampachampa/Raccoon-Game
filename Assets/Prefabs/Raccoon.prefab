@@ -773,7 +773,6 @@ MonoBehaviour:
   playerAnimator: {fileID: 4690034466703811844}
   trailRenderer: {fileID: 4325637816661618848}
   currentSpeed: 0
-  rotationSpeed: 800
   levelManager: {fileID: 0}
   dashSounds:
   - {fileID: 8300000, guid: bad36d5e6a6e3451b8b72a2e9d1de9dd, type: 3}
@@ -782,9 +781,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
-  deathSound: {fileID: 8300000, guid: 335daf587aa02487fbd55ffd90491f4c, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: cdaa224f0805349bdadeed8d77434d57, type: 3}
+  - {fileID: 8300000, guid: c73a326c5b4c34502a9b4dd1f641f4f2, type: 3}
+  - {fileID: 8300000, guid: 50212b3fdece046eab72a3295b5df328, type: 3}
   dropSound: {fileID: 8300000, guid: f1378f6e3708447a3bd0d368e9a88240, type: 3}
-  eatingSound: {fileID: 8300000, guid: 08b3098c6dc1742e690eaceed159091c, type: 3}
+  eatingSounds:
+  - {fileID: 8300000, guid: 21f0f71dc1df446aaa11b0d8971a8a00, type: 3}
+  - {fileID: 8300000, guid: e90e94b581d8049b98a425b900a49e35, type: 3}
+  - {fileID: 8300000, guid: 517527a0f9168484f8d2a54843afed9e, type: 3}
+  - {fileID: 8300000, guid: 10b40375aac434a928c5b3b59cd7d2db, type: 3}
 --- !u!143 &4374434889144319196
 CharacterController:
   m_ObjectHideFlags: 0

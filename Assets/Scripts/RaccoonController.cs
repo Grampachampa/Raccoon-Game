@@ -44,9 +44,9 @@ public class RaccoonController : MonoBehaviour
     
     [SerializeField] private AudioClip[] dashSounds;
     [SerializeField] private AudioClip[] grassSounds;
-    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip[] deathSounds;
     [SerializeField] private AudioClip dropSound;
-    [SerializeField] private AudioClip eatingSound;
+    [SerializeField] private AudioClip[] eatingSounds;
     
     private AudioSource movementAudio;
     private AudioSource raccoonAudio;
@@ -164,9 +164,10 @@ public class RaccoonController : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        movementAudio.volume = 0.3f;
-        movementAudio.clip = dashSounds[Random.Range(0, dashSounds.Length)];
-        movementAudio.Play();
+        raccoonAudio.volume = 0.3f;
+        raccoonAudio.pitch = Random.Range(1f, 1.5f);
+        raccoonAudio.clip = dashSounds[Random.Range(0, dashSounds.Length)];
+        raccoonAudio.Play();
         
         canDash = false;
         isDashing = true;
@@ -191,7 +192,8 @@ public class RaccoonController : MonoBehaviour
     private IEnumerator Die()
     {
         raccoonAudio.volume = 0.8f;
-        raccoonAudio.clip = deathSound;
+        raccoonAudio.pitch = Random.Range(2f, 2.5f);
+        raccoonAudio.clip = deathSounds[Random.Range(0, deathSounds.Length)];;
         raccoonAudio.Play();
         playerAnimator.SetBool(IsDead, true);
         yield return new WaitForSeconds(0.5f);
@@ -207,7 +209,8 @@ public class RaccoonController : MonoBehaviour
         if (other.gameObject.CompareTag("CottonCandy") && isEating)
         {
             raccoonAudio.volume = 0.8f;
-            raccoonAudio.clip = eatingSound;
+            raccoonAudio.pitch = Random.Range(2f, 3f);
+            raccoonAudio.clip = eatingSounds[Random.Range(0, eatingSounds.Length)];
             raccoonAudio.Play();
             Destroy(other.gameObject);
             levelManager.hp += 60;
