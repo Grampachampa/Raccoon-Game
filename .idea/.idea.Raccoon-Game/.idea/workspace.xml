@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0fe05ba-52f3-40d3-9b9e-1ed4171aac22" name="Changes" comment="">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/Assets/Sounds.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Sounds/dash1.wav" afterDir="false" />
@@ -32,6 +33,10 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/RaccoonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RaccoonController.cs" afterDir="false" />
 >>>>>>> turkan
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Raccoon-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD0.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Quirky Series Ultimate/Quirky Series Vol.1/Forest Vol.1/Models/Raccoon_LOD0.fbx.meta" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
