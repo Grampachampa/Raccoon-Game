@@ -35,7 +35,7 @@ public class RaccoonController : MonoBehaviour
     private bool isDeath = false;
     
     
-    private float speed = 2f;
+    private float speed = 3.5f;
     private float slowSpeed = 0.03f;
     public float currentSpeed;
     private float rotationSpeed = 800f;
