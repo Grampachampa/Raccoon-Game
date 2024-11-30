@@ -12,6 +12,9 @@ using Random = UnityEngine.Random;
 
 public class BoundsGenerator : MonoBehaviour
 {
+    [SerializeField] GameObject sprinkler;
+    [SerializeField] GameObject cottonCandy;
+    float cottonCandyY = 0.296f;
     [SerializeField] bool on = true;
     [SerializeField] bool visualize = false;
     [SerializeField] GameObject[] fences1;
@@ -20,20 +23,15 @@ public class BoundsGenerator : MonoBehaviour
 
     [SerializeField] GameObject[] houses;
     [SerializeField] GameObject floor;
-    [SerializeField] GameObject[] obstacleObjects;
-    [SerializeField] RotationMode[] rots;
-
-    [SerializeField] int[] means;
-    [SerializeField] float[] stdDevs; 
-    [SerializeField] float[] houseBiases;
-
-    public struct GameObjectData {
+    [Serializable] public struct GameObjectData {
         public GameObject obj;
         public float mean;
         public RotationMode rotation;
         public float stdDev;
         public float houseBias;
     };
+
+    [SerializeField] GameObjectData[] obstacles;
 
     public struct FreeSpaces {
         public int x;
@@ -73,7 +71,6 @@ public class BoundsGenerator : MonoBehaviour
     List<FreeSpaces> freeSpacesList = new List<FreeSpaces>();
 
     GridState[,] grid;
-    GameObjectData[] obstacles;
 
     
     public enum GridState
@@ -94,19 +91,6 @@ public class BoundsGenerator : MonoBehaviour
             hideExampleObjects();
             root = new GameObject("Root");
             root.transform.position = Vector3.zero;
-            obstacles = new GameObjectData[obstacleObjects.Length];
-            for (int i = 0; i < obstacleObjects.Length; i++)
-            {
-                obstacles[i] = new GameObjectData
-                {
-                obj = obstacleObjects[i],
-                rotation = rots[i],
-                mean = means[i],
-                stdDev = stdDevs[i],
-                houseBias = houseBiases[i]
-                };
-            }
-
             GenerateMap();
             GenerateObstacles();
             if (visualize)
@@ -248,9 +232,39 @@ public class BoundsGenerator : MonoBehaviour
         SpawnHouse();
         MakeWalls();
         UpdateGrid();
+        SpawnSprinklers();
+        SpawnCottonCandy();
         MakeFloor();
+    }
 
+    void SpawnSprinklers(int numSprinklers = 5){
+        for (int i = 0; i < numSprinklers; i++)
+        {
+            FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+            grid[space.x, space.y] = GridState.GameObject;
+            freeSpacesList.Remove(space);
 
+            //UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter}, GridState.ObjectPadding);
+
+            Vector3 pos = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
+
+            Quaternion rotation = Quaternion.Euler(-90, Random.Range(0, 360), 0);
+            Instantiate(sprinkler, pos, rotation, root.transform);
+        }
+    }
+    void SpawnCottonCandy(int numCandy = 3){
+        for (int i = 0; i < numCandy; i++)
+        {
+            FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+            grid[space.x, space.y] = GridState.GameObject;
+            freeSpacesList.Remove(space);
+
+            //UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter}, GridState.ObjectPadding);
+
+            Vector3 pos = new Vector3(space.x - maxWidth - wPadding, cottonCandyY, house_pos - space.y + 3/2 + 1 + lPadding);
+            Quaternion rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+            Instantiate(cottonCandy, pos, rotation, root.transform);
+        }
     }
 
     // Update is called once per frame
