@@ -11,11 +11,21 @@ PrefabInstance:
     - target: {fileID: -2043497010947441660, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}
       propertyPath: MaxDistance
-      value: 4
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2043497010947441660, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: MinDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -2043497010947441660, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}
       propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2043497010947441660, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5139159331327688844, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
@@ -117,6 +127,12 @@ PrefabInstance:
       propertyPath: puddlePrefabs.Array.data[4]
       value: 
       objectReference: {fileID: 8193172911029633427, guid: 356229d396c4a4e358f481d45fac13dc,
+        type: 3}
+    - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
+        type: 3}
+      propertyPath: puddlePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 231e6116ef6a87b4f945504d99b0fe9d,
         type: 3}
     - target: {fileID: 9048000215444156802, guid: 7d15b06c91448ed4b9fe43db6fba0fc1,
         type: 3}

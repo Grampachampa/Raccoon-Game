@@ -28,25 +28,25 @@ public class RaccoonController : MonoBehaviour
     
     private bool canDash = true;
     private bool isDashing = false;
-    private float dashingPower = 10f;
+    private float dashingPower = 14f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 2f;
+    private float dashingCooldown = 1f;
     private bool isEating = false;
     private bool isDeath = false;
     
     
-    public float speed = 2f;
-    public float slowSpeed = 1f;
+    private float speed = 2f;
+    private float slowSpeed = 0.03f;
     public float currentSpeed;
-    public float rotationSpeed = 800f;
+    private float rotationSpeed = 800f;
     
     public LevelManager levelManager;
     
     [SerializeField] private AudioClip[] dashSounds;
     [SerializeField] private AudioClip[] grassSounds;
-    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip[] deathSounds;
     [SerializeField] private AudioClip dropSound;
-    [SerializeField] private AudioClip eatingSound;
+    [SerializeField] private AudioClip[] eatingSounds;
     
     private AudioSource movementAudio;
     private AudioSource raccoonAudio;
@@ -77,8 +77,8 @@ public class RaccoonController : MonoBehaviour
            
         }
         
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         // Get camera-relative directions for movement
         Vector3 camForward = mainCamera.transform.forward;
@@ -144,6 +144,14 @@ public class RaccoonController : MonoBehaviour
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime); 
+        
+        
+        // Check for game end
+        if (levelManager.cottonCandyCount <= 0)
+        {
+            StartCoroutine(Die());
+            //Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -156,9 +164,10 @@ public class RaccoonController : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        movementAudio.volume = 0.3f;
-        movementAudio.clip = dashSounds[Random.Range(0, dashSounds.Length)];
-        movementAudio.Play();
+        raccoonAudio.volume = 0.3f;
+        raccoonAudio.pitch = Random.Range(1f, 1.5f);
+        raccoonAudio.clip = dashSounds[Random.Range(0, dashSounds.Length)];
+        raccoonAudio.Play();
         
         canDash = false;
         isDashing = true;
@@ -183,10 +192,11 @@ public class RaccoonController : MonoBehaviour
     private IEnumerator Die()
     {
         raccoonAudio.volume = 0.8f;
-        raccoonAudio.clip = deathSound;
+        raccoonAudio.pitch = Random.Range(2f, 2.5f);
+        raccoonAudio.clip = deathSounds[Random.Range(0, deathSounds.Length)];;
         raccoonAudio.Play();
         playerAnimator.SetBool(IsDead, true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
         isDeath = true;
         playerAnimator.SetBool(IsWalking, false);
         playerAnimator.SetBool(IsDead, true);
@@ -199,42 +209,45 @@ public class RaccoonController : MonoBehaviour
         if (other.gameObject.CompareTag("CottonCandy") && isEating)
         {
             raccoonAudio.volume = 0.8f;
-            raccoonAudio.clip = eatingSound;
+            raccoonAudio.pitch = Random.Range(2f, 3f);
+            raccoonAudio.clip = eatingSounds[Random.Range(0, eatingSounds.Length)];
             raccoonAudio.Play();
             Destroy(other.gameObject);
-            levelManager.cottonCandyCount++;
+            levelManager.hp += 60;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
         if (other.gameObject.CompareTag("Puddle"))
         {
-            if (levelManager.cottonCandyCount >= 1)
+            if (levelManager.hp >= 0.01 && !isDashing)
             {
-                if (levelManager.cottonCandyCount >= 1 && !isDashing)
-                {
-                    levelManager.cottonCandyCount--;
-                    currentSpeed = slowSpeed;
-                }
+                currentSpeed = slowSpeed;
+                levelManager.hp--;
             }
-            else
-            {
-                StartCoroutine(Die());
-            }
-        }
-        if (other.gameObject.CompareTag("Sprinkler"))
-        {
-            if (levelManager.cottonCandyCount >= 1 && !isDashing)
-            {
-                levelManager.cottonCandyCount--;
-            }
-            else if (levelManager.cottonCandyCount <= 0)
+            else if (levelManager.hp <= 0)
             {
                 StartCoroutine(Die());
                 //Destroy(gameObject);
             }
         }
+        if (other.gameObject.CompareTag("Sprinkler"))
+        {
+            if (levelManager.hp >= 0.01 && !isDashing)
+            {
+                levelManager.hp--;
+            }
+            else if (levelManager.hp <= 0)
+            {
+                StartCoroutine(Die());
+                //Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        
+       
+       
         /*
         if (other.gameObject.CompareTag("CottonCandy"))
         {
@@ -248,7 +261,15 @@ public class RaccoonController : MonoBehaviour
             //enter the new level
             levelManager.enterNewLevel()
         }
-        */
+        */ 
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Puddle"))
+        {
+            currentSpeed = speed;
+        }
     }
     
     public void footstep()
