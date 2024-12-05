@@ -2543,12 +2543,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 775688157}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &783455137 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5033047528228215736, guid: b2b942de678408243848118d94a22712,
-    type: 3}
-  m_PrefabInstance: {fileID: 520043167}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &792839085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6592,3 +6586,4 @@ SceneRoots:
   - {fileID: 1682052560}
   - {fileID: 610630022}
   - {fileID: 4295783586805358814}
+  - {fileID: 355487516}

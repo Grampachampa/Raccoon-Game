@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class BoundsGenerator : MonoBehaviour
@@ -42,6 +43,7 @@ public class BoundsGenerator : MonoBehaviour
     };
 
     [SerializeField] GameObjectData[] obstacles;
+    [SerializeField] GameObjectData[] floorElements;
 
     public struct FreeSpaces {
         public int x;
@@ -323,6 +325,55 @@ public class BoundsGenerator : MonoBehaviour
         SpawnCottonCandy();
         MakeFloor();
         PlaceExitDoor();
+        SpawnFloorElements();
+    }
+
+    void SpawnFloorElements(){
+
+        for (int i = 0; i < floorElements.Length; i++ ){
+            GameObjectData panel = floorElements[i];
+            if (panel.objs.Length == 0) continue;
+
+            float u1 = Random.Range(0f,1f); // Random value between 0 and 1
+            float u2 = Random.Range(0f,1f); // Another random value between 0 and 1
+
+            // Apply the Box-Muller transform
+            double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
+            
+            // Scale to the desired mean and standard deviation
+            double randNormal = panel.mean + panel.stdDev * randStdNormal;
+
+            // Convert to an integer
+            int num_instances = Math.Clamp((int)Math.Round(randNormal), 0, 50);
+
+            for (int j = 0; j < num_instances; j++)
+            { 
+                FreeSpaces space = new FreeSpaces();
+                bool found = false;
+                for (int r = 0; r < 100; r++){
+                    space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+                    if (checkFreeRadius(space.x, space.y, panel.diameter, new GridState[]{GridState.EmptyAvailable})){
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found){
+                    break;
+                }
+
+                Vector3 pos = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
+
+                Quaternion rotation = CalculateRotation(panel.rotation, space);
+
+                GameObject obj = panel.objs[Random.Range(0, panel.objs.Length)];
+                Instantiate(obj, pos, rotation, root.transform);
+                }
+
+            
+
+        }
+
     }
 
     void PlaceExitDoor(){
