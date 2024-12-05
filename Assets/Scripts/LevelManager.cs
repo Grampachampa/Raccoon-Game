@@ -46,6 +46,7 @@ public class LevelManager : MonoBehaviour
 
         timer += Time.deltaTime;
         
+        Debug.Log(cottonCandyCount);
     }
     private void endGame()
     {
@@ -56,7 +57,7 @@ public class LevelManager : MonoBehaviour
 
     }
     
-    private void enterNewLevel()
+    public void enterNewLevel()
     {
         //GUI.ReportToPlayer("Your raccoon kids are proud of you! Keep going!");
         levelCount++;
