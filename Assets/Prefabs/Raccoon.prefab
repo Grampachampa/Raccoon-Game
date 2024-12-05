@@ -772,6 +772,7 @@ MonoBehaviour:
   controller: {fileID: 4374434889144319196}
   playerAnimator: {fileID: 4690034466703811844}
   trailRenderer: {fileID: 4325637816661618848}
+  ateCandy: 0
   currentSpeed: 0
   levelManager: {fileID: 0}
   dashSounds:
@@ -781,6 +782,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
   - {fileID: 8300000, guid: 97e8694ebb9a7437487c07ac5b513639, type: 3}
+  waterSounds:
+  - {fileID: 8300000, guid: acf0e7c8014004b1096dc84489f823bc, type: 3}
+  - {fileID: 8300000, guid: 3327a797c98734a339b4b4536b4d8a5e, type: 3}
+  - {fileID: 8300000, guid: 6260fc5ef50f14dd58122940653e82cf, type: 3}
+  - {fileID: 8300000, guid: e93501c3776484c54bbb584f5ad8a796, type: 3}
+  - {fileID: 8300000, guid: e6909897a7beb4589a40c4150922f48d, type: 3}
   deathSounds:
   - {fileID: 8300000, guid: cdaa224f0805349bdadeed8d77434d57, type: 3}
   - {fileID: 8300000, guid: c73a326c5b4c34502a9b4dd1f641f4f2, type: 3}

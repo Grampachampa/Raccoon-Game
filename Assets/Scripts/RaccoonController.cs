@@ -34,6 +34,7 @@ public class RaccoonController : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool isEating = false;
     private bool isDeath = false;
+    private bool inPuddle = false;
 
     public int ateCandy = 0; // to keep track of amount of cotton candy eaten
     
@@ -46,6 +47,7 @@ public class RaccoonController : MonoBehaviour
     
     [SerializeField] private AudioClip[] dashSounds;
     [SerializeField] private AudioClip[] grassSounds;
+    [SerializeField] private AudioClip[] waterSounds;
     [SerializeField] private AudioClip[] deathSounds;
     [SerializeField] private AudioClip dropSound;
     [SerializeField] private AudioClip[] eatingSounds;
@@ -227,6 +229,7 @@ public class RaccoonController : MonoBehaviour
         
         if (other.gameObject.CompareTag("Puddle"))
         {
+            inPuddle = true;
             if (levelManager.hp >= 0.01 && !isDashing)
             {
                 currentSpeed = slowSpeed;
@@ -285,15 +288,24 @@ public class RaccoonController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Puddle"))
         {
+            inPuddle = false;
             currentSpeed = speed;
         }
     }
     
     public void footstep()
     {
-        movementAudio.volume = 0.8f;
+        if (!inPuddle)
+        {
+            movementAudio.volume = 0.9f;
+            movementAudio.clip = grassSounds[Random.Range(0, grassSounds.Length)];
+        }
+        else
+        {
+            movementAudio.volume = 0.8f;
+            movementAudio.clip = waterSounds[Random.Range(0, waterSounds.Length)];
+        }
         movementAudio.pitch = Random.Range(1f, 2f);
-        movementAudio.clip = grassSounds[Random.Range(0, grassSounds.Length)];
         movementAudio.Play();
     }
     
