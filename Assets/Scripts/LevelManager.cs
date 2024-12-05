@@ -46,6 +46,7 @@ public class LevelManager : MonoBehaviour
 
         timer += Time.deltaTime;
         
+        Debug.Log(cottonCandyCount);
     }
     private void endGame()
     {
