@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Threading;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -12,8 +14,11 @@ public class LevelManager : MonoBehaviour
 
     public int hp = 60 ;
     public float cottonCandyCount;
-    
     // Start is called before the first frame update
+
+    public float timer = 0f;
+    public float levelCount = 1f;
+    public static float difficulty = 1;
     void Start()
     {
        //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
@@ -35,7 +40,9 @@ public class LevelManager : MonoBehaviour
         {
             endGame();
         }
-        Debug.Log(cottonCandyCount);
+
+        timer += Time.deltaTime;
+        
     }
     private void endGame()
     {
@@ -49,6 +56,15 @@ public class LevelManager : MonoBehaviour
     private void enterNewLevel()
     {
         //GUI.ReportToPlayer("Your raccoon kids are proud of you! Keep going!");
-
+        levelCount++;
+        difficulty = CalculateDifficulty();
     }
+
+    private float CalculateDifficulty()
+    {
+        float levelDifficultyMod = 15f;
+        return Mathf.Log(((timer + (levelCount + levelDifficultyMod))/20) + 1, 2.74f);
+    }
+
 }
+

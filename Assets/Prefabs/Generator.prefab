@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6013879711329676740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6733737012138818306}
+  - component: {fileID: 4960877322415215414}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6733737012138818306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013879711329676740}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4960877322415215414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013879711329676740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e055bea32240838418708c107f7e858e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprinkler: {fileID: 5504114061006454902, guid: 0d635272a6b154c388593354df0067e4,
+    type: 3}
+  cottonCandy: {fileID: 9140727164278147333, guid: dbac3a1d28484354f8ce21f7b4bcbc81,
+    type: 3}
+  exitDoor: {fileID: 1282585982234549254, guid: 971dbbf23b95f434ea06b08bc5a0a3fe,
+    type: 3}
+  on: 1
+  visualize: 0
+  fences1:
+  - {fileID: 2383897335418973032, guid: 3e282151fc0484442b3637fed34e21f6, type: 3}
+  - {fileID: 2498242527655461122, guid: 6b4939e0d9856d542babd8f11194a051, type: 3}
+  - {fileID: 7040250998837274967, guid: ccc54269a5a38aa4cae316ab7d5dfcc3, type: 3}
+  fences2:
+  - {fileID: 6958428140643264917, guid: a6ab2a883e6a8164d945fff85a7ae929, type: 3}
+  - {fileID: 79674657978830244, guid: b497276f4fdc25b47bf8e4b556f69b97, type: 3}
+  - {fileID: 6530421772691666427, guid: 7bdff308d171b27438de56f7cb02644b, type: 3}
+  hedges:
+  - {fileID: 3013524866704030849, guid: b36812acbd8e7f14f8da303705f47496, type: 3}
+  - {fileID: 4742937940918612964, guid: 69d7ca4c62801894381e0788ea004461, type: 3}
+  - {fileID: 3345087079532695970, guid: e2b5eb94ef9411345899f9685833434b, type: 3}
+  houses:
+  - {fileID: 2883663203997316277, guid: c3403c0cd724f5e478354b36d1bfbbc1, type: 3}
+  - {fileID: 2143268052139255768, guid: 908fef93718c379468ceae6fefa2d7d5, type: 3}
+  floor: {fileID: 9016379231851070350, guid: 63e626537c4f43840846d41d1c9487d4, type: 3}
+  obstacles:
+  - name: Barrel Collections
+    objs:
+    - {fileID: 8123978516660779547, guid: d613dc8c4f21fcb48b8b0252cde37602, type: 3}
+    - {fileID: 5401692082392384369, guid: 41e67863981a4194fb55c5d4a7f2fdd2, type: 3}
+    - {fileID: 3418182226565921597, guid: 00e7c5ec28f283c4084ecfc892727797, type: 3}
+    - {fileID: 8283515134016864238, guid: e83b80eac24107f41adbb5c941f74a0f, type: 3}
+    mean: 2
+    rotation: 0
+    stdDev: 3
+    houseBias: 0
+    diameter: 1
+    auxillaries: []
+    auxMean: 0
+    auxStdDev: 0
+  - name: Barrels
+    objs:
+    - {fileID: 1899954898897384534, guid: 2e88c5d2330b8ee41bb6491dbda1a86c, type: 3}
+    - {fileID: 8744036978884593712, guid: 8cb1db29146a84947be56638cf3e2d1b, type: 3}
+    - {fileID: 729359775143425198, guid: 97fef6fa2a3993341919270fcd42b9eb, type: 3}
+    - {fileID: 824251245483113998, guid: 3601ceb7159810045a4aeef8a27d9315, type: 3}
+    mean: 2
+    rotation: 0
+    stdDev: 3
+    houseBias: 0.5
+    diameter: 1
+    auxillaries: []
+    auxMean: 0
+    auxStdDev: 0
+  - name: DogHouses
+    objs:
+    - {fileID: 6842975760642247502, guid: b8987aade9770aa47844008b0dd8af41, type: 3}
+    - {fileID: 4547908606526582448, guid: c64a5a665f19aff4e8b36872d043c56d, type: 3}
+    - {fileID: 8822160107881493996, guid: b1f527f263a81ba45a88c06978d51b8d, type: 3}
+    mean: 1
+    rotation: 0
+    stdDev: 2
+    houseBias: 0.6
+    diameter: 1
+    auxillaries:
+    - {fileID: 5168268145582206160, guid: 9b5f335cc04defd439f506dde844d521, type: 3}
+    - {fileID: 8447577655324493054, guid: 2b816dbeae1994b46bfa29b57a065ab3, type: 3}
+    - {fileID: 2152326697226211126, guid: 590203be9cbd7734ead04dacf690c1d7, type: 3}
+    auxMean: 1
+    auxStdDev: 1
+  - name: BirdHouse
+    objs:
+    - {fileID: 3936038717561374958, guid: f796d583c06accc4c9a10c1a9adbfa80, type: 3}
+    - {fileID: 1647716278116303474, guid: c7330224e5c065e40abbf2fba4ab98d7, type: 3}
+    mean: 1
+    rotation: 0
+    stdDev: 3
+    houseBias: 0
+    diameter: 1
+    auxillaries: []
+    auxMean: 0
+    auxStdDev: 0
+  - name: Tables
+    objs:
+    - {fileID: 9133900975011185381, guid: 27251869cbd60e24f8321b66c23c0c7e, type: 3}
+    - {fileID: 2528777597689078505, guid: 4e97193f6ba863743b4244ed934e1795, type: 3}
+    - {fileID: 2528777597689078505, guid: dc16e1f00346fd547aeaea47800c5c30, type: 3}
+    - {fileID: 1145591394394369957, guid: 0ef0c486d684ea340aa26445feb03ff4, type: 3}
+    - {fileID: 1145591394394369957, guid: 6080f2949ef07f441895c7e331582e7b, type: 3}
+    mean: 0.3
+    rotation: 0
+    stdDev: 1
+    houseBias: 0.5
+    diameter: 1
+    auxillaries: []
+    auxMean: 0
+    auxStdDev: 0
+  - name: Greenhouses
+    objs:
+    - {fileID: 3527852336089383598, guid: efd8db9325b3b544f8acc2a3d7ac1b55, type: 3}
+    - {fileID: 3527852336089383598, guid: 866aa094df3abc8408672ac6e3a60473, type: 3}
+    - {fileID: 3527852336089383598, guid: 029175d320e7b7648ae02bd2b8472770, type: 3}
+    - {fileID: 3527852336089383598, guid: 6e1663dd56ab71b4d9bc236c98db1436, type: 3}
+    - {fileID: 3527852336089383598, guid: 954f2d07cbb848a4eb0a0639b0df3f94, type: 3}
+    mean: 1
+    rotation: 0
+    stdDev: 2
+    houseBias: 0.5
+    diameter: 3
+    auxillaries:
+    - {fileID: 1397977347240724296, guid: a6281bb590c0ba442ba8a2368d2e77e7, type: 3}
+    - {fileID: 5445341652586722451, guid: 1a75a633dde0cbf4090023a5b2ad3eb9, type: 3}
+    - {fileID: 1688991925751194253, guid: 976d90d46d281084198a559c5dff5455, type: 3}
+    auxMean: 1
+    auxStdDev: 1
+  - name: Trees
+    objs:
+    - {fileID: 6982564989907929321, guid: 8f021c343ceaf26489a5d39bfe9bb8c1, type: 3}
+    - {fileID: 6089841977922181385, guid: 8869b61d5d7f6834b8e0bdaf45183c83, type: 3}
+    - {fileID: 8236562169610110000, guid: 4acb54305246b4b459b04a7903bd5b2d, type: 3}
+    - {fileID: 2082384314068978202, guid: 4744aa1de6508a546a94ca2082fe500d, type: 3}
+    - {fileID: 5125620082903818256, guid: da73a2bdfdd6b2b45826ccb2e92f3445, type: 3}
+    - {fileID: 8658212608744035224, guid: 224c8a8d2c7b2174ca1ab899564b7139, type: 3}
+    mean: 3
+    rotation: 0
+    stdDev: 1
+    houseBias: -0.2
+    diameter: 2
+    auxillaries:
+    - {fileID: 1161262413305028815, guid: e4bf8494d3e549d45bc0474f1022294b, type: 3}
+    - {fileID: 4231934276589130732, guid: 6fdb38de0b69a3a43bf2cb41d9dd4ad5, type: 3}
+    - {fileID: 8098908393891633942, guid: 2b6d05725ad455444814d327aa876797, type: 3}
+    - {fileID: 3695303126140967556, guid: 10d6148ce88c0414c8786f48bce5f04a, type: 3}
+    auxMean: 3
+    auxStdDev: 3
+  - name: Bushes
+    objs:
+    - {fileID: 2929350452209706237, guid: c811cf1682684c54e8f48a7c8e9b11a2, type: 3}
+    - {fileID: 4287074164636853990, guid: d229e0a988551284e9dfb35843c86a2c, type: 3}
+    - {fileID: 8823583796762959344, guid: a08a1a9365acd064fb50d546c6bbbd99, type: 3}
+    - {fileID: 738434795985466190, guid: af8800b8927645a40af3adc130eaba5d, type: 3}
+    - {fileID: 7167068875785380034, guid: 20c94f2d8c25cc44f956a442f4f0ef5a, type: 3}
+    mean: 5
+    rotation: 0
+    stdDev: 3
+    houseBias: 0
+    diameter: 1
+    auxillaries: []
+    auxMean: 0
+    auxStdDev: 0

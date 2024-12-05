@@ -25,7 +25,8 @@ public class RaccoonController : MonoBehaviour
     
     private Vector3 velocity;
     private float gravity = -9.81f;
-    
+
+    private bool dead = false;
     private bool canDash = true;
     private bool isDashing = false;
     private float dashingPower = 14f;
@@ -33,11 +34,12 @@ public class RaccoonController : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool isEating = false;
     private bool isDeath = false;
+    private bool inPuddle = false;
 
     public int ateCandy = 0; // to keep track of amount of cotton candy eaten
     
     private float speed = 3.5f;
-    private float slowSpeed = 0.03f;
+    private float slowSpeed = 2f;
     public float currentSpeed;
     private float rotationSpeed = 800f;
     
@@ -45,6 +47,7 @@ public class RaccoonController : MonoBehaviour
     
     [SerializeField] private AudioClip[] dashSounds;
     [SerializeField] private AudioClip[] grassSounds;
+    [SerializeField] private AudioClip[] waterSounds;
     [SerializeField] private AudioClip[] deathSounds;
     [SerializeField] private AudioClip dropSound;
     [SerializeField] private AudioClip[] eatingSounds;
@@ -63,6 +66,7 @@ public class RaccoonController : MonoBehaviour
     {
         movementAudio = GetComponents<AudioSource>()[0];
         raccoonAudio = GetComponents<AudioSource>()[1];
+        currentSpeed = speed;
     }
     
     void Update()
@@ -112,15 +116,13 @@ public class RaccoonController : MonoBehaviour
             playerAnimator.SetBool(IsSwimming, false);
         }
 
-        currentSpeed = speed;
-
         // Move the character
         controller.Move(movement * (currentSpeed * Time.deltaTime));
         
         Vector3 movementDirection = new Vector3(movement.x, 0, movement.z);
         movementDirection.Normalize();
         
-        transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
+        transform.Translate(movementDirection * currentSpeed * Time.deltaTime, Space.World);
 
         if (movementDirection != Vector3.zero)
         {
@@ -227,13 +229,15 @@ public class RaccoonController : MonoBehaviour
         
         if (other.gameObject.CompareTag("Puddle"))
         {
+            inPuddle = true;
             if (levelManager.hp >= 0.01 && !isDashing)
             {
                 currentSpeed = slowSpeed;
                 levelManager.hp--;
             }
-            else if (levelManager.hp <= 0)
+            else if (levelManager.hp <= 0 && !dead)
             {
+                dead = true;
                 StartCoroutine(Die());
                 //Destroy(gameObject);
             }
@@ -244,8 +248,9 @@ public class RaccoonController : MonoBehaviour
             {
                 levelManager.hp--;
             }
-            else if (levelManager.hp <= 0)
+            else if (levelManager.hp <= 0 && !dead)
             {
+                dead = true;
                 StartCoroutine(Die());
                 //Destroy(gameObject);
             }
@@ -283,15 +288,24 @@ public class RaccoonController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Puddle"))
         {
+            inPuddle = false;
             currentSpeed = speed;
         }
     }
     
     public void footstep()
     {
-        movementAudio.volume = 0.8f;
+        if (!inPuddle)
+        {
+            movementAudio.volume = 0.9f;
+            movementAudio.clip = grassSounds[Random.Range(0, grassSounds.Length)];
+        }
+        else
+        {
+            movementAudio.volume = 0.8f;
+            movementAudio.clip = waterSounds[Random.Range(0, waterSounds.Length)];
+        }
         movementAudio.pitch = Random.Range(1f, 2f);
-        movementAudio.clip = grassSounds[Random.Range(0, grassSounds.Length)];
         movementAudio.Play();
     }
     
