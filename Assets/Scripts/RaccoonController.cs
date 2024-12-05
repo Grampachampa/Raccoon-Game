@@ -286,11 +286,7 @@ public class RaccoonController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         hasEatenCandy = false;
     }
-    private IEnumerator ResetEatingFlag()
-    {
-        yield return new WaitForSeconds(0.2f);
-        hasEatenCandy = false;
-    }
+  
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Puddle"))
