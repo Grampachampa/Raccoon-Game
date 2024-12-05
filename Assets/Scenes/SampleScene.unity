@@ -2100,12 +2100,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 644436149}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &648450368 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5127728877555522252, guid: 0d635272a6b154c388593354df0067e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 495600853}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &652772990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2540,6 +2534,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2493270481369785915, guid: b36812acbd8e7f14f8da303705f47496,
     type: 3}
   m_PrefabInstance: {fileID: 775688157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &783455137 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5033047528228215736, guid: b2b942de678408243848118d94a22712,
+    type: 3}
+  m_PrefabInstance: {fileID: 520043167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &792839085
 PrefabInstance:
@@ -5086,8 +5086,8 @@ Transform:
   - {fileID: 1630013499}
   - {fileID: 1415920637}
   - {fileID: 1076244657}
-  - {fileID: 648450368}
   - {fileID: 162412847}
+  - {fileID: 783455137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1630013499 stripped
@@ -5484,6 +5484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
+      propertyPath: waterSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
       propertyPath: eatingSounds.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -5512,6 +5517,31 @@ PrefabInstance:
       propertyPath: deathSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 50212b3fdece046eab72a3295b5df328, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: acf0e7c8014004b1096dc84489f823bc, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3327a797c98734a339b4b4536b4d8a5e, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6260fc5ef50f14dd58122940653e82cf, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e93501c3776484c54bbb584f5ad8a796, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6909897a7beb4589a40c4150922f48d, type: 3}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
       propertyPath: eatingSounds.Array.data[0]
@@ -6548,8 +6578,5 @@ SceneRoots:
   - {fileID: 4381955949277279742}
   - {fileID: 1682052560}
   - {fileID: 610630022}
-  - {fileID: 374562374}
-  - {fileID: 2103042295}
-  - {fileID: 479306082}
-  - {fileID: 626473285}
   - {fileID: 355487516}
+  - {fileID: 4295783586805358814}
