@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
     private AudioSource globalAudio;
 
     [SerializeField] private AudioClip[] levelMusic;
+    [SerializeField] private GameObject generator;
+    private GameObject currentGenerator;
 
 
     public int hp = 60 ;
@@ -21,6 +23,7 @@ public class LevelManager : MonoBehaviour
     public static float difficulty = 1;
     void Start()
     {
+        enterNewLevel();
        //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
        // Setting up the level music
@@ -58,6 +61,19 @@ public class LevelManager : MonoBehaviour
         //GUI.ReportToPlayer("Your raccoon kids are proud of you! Keep going!");
         levelCount++;
         difficulty = CalculateDifficulty();
+        if (currentGenerator != null)
+        {
+            DestroyOldLevel();
+        }
+        currentGenerator = Instantiate(generator, new Vector3(0, 0, 0), Quaternion.identity);
+        
+    }
+
+    private void DestroyOldLevel(){
+        GameObject generator = GameObject.Find("Generator");
+        BoundsGenerator bounds = generator.GetComponent<BoundsGenerator>();
+        bounds.Terminate();
+        
     }
 
     private float CalculateDifficulty()
