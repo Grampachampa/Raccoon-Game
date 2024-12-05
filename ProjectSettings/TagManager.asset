@@ -9,6 +9,7 @@ TagManager:
   - Puddle
   - Example
   - PotHole
+  - Generated
   layers:
   - Default
   - TransparentFX

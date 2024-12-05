@@ -71,8 +71,7 @@ public class LevelManager : MonoBehaviour
     }
 
     private void DestroyOldLevel(){
-        GameObject generator = GameObject.Find("Generator");
-        BoundsGenerator bounds = generator.GetComponent<BoundsGenerator>();
+        BoundsGenerator bounds = currentGenerator.GetComponent<BoundsGenerator>();
         bounds.Terminate();
         
     }

@@ -194,18 +194,6 @@ MonoBehaviour:
     auxMean: 0
     auxStdDev: 0
   floorElements:
-  - name: Dirt
-    objs:
-    - {fileID: 4613250472339860908, guid: 97b7791baf64b9c4f9bdb4ddf18e6b38, type: 3}
-    - {fileID: 2526364658052433504, guid: 35487cd18709aa14887c305e3fc70d63, type: 3}
-    mean: 3
-    rotation: 0
-    stdDev: 3
-    houseBias: 0
-    diameter: 0
-    auxillaries: []
-    auxMean: 0
-    auxStdDev: 0
   - name: Grass
     objs:
     - {fileID: 8358101648614693880, guid: 52b81639f4b0ece4799b58c50f85be23, type: 3}
@@ -214,7 +202,7 @@ MonoBehaviour:
     - {fileID: 1748590322675348165, guid: 955092d24d36700449862daa5a757b21, type: 3}
     - {fileID: 7677612587439440926, guid: 9ebf162377675b247bf736cdf5ca6f28, type: 3}
     - {fileID: 7808804811025987923, guid: f5a6b9b0447884b4fad2127ae3221cfe, type: 3}
-    mean: 40
+    mean: 200
     rotation: 0
     stdDev: 20
     houseBias: 0
