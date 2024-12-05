@@ -36,6 +36,8 @@ public class RaccoonController : MonoBehaviour
     private bool isEating = false;
     private bool isDeath = false;
     private bool inPuddle = false;
+    private bool isJumping = false;
+
 
     public int ateCandy = 0; // to keep track of amount of cotton candy eaten
     
@@ -60,6 +62,7 @@ public class RaccoonController : MonoBehaviour
     private static readonly int IsEating = Animator.StringToHash("IsEating");
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     private static readonly int IsDead = Animator.StringToHash("IsDead");
+    private static readonly int IsJumping = Animator.StringToHash("IsJumping");
     
     float tiltAngle = 60.0f;
 
@@ -139,7 +142,7 @@ public class RaccoonController : MonoBehaviour
         
 
         // Trigger eating animation on right-click
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && !isJumping)
         {
             playerAnimator.SetBool(IsEating, true);
             isEating = true;
@@ -214,11 +217,25 @@ public class RaccoonController : MonoBehaviour
         SceneManager.LoadScene("End");
     }
 
+    private IEnumerator GoPotHole()
+    {
+        isJumping = true;
+        Debug.Log("coroutine");
+        playerAnimator.SetBool(IsEating, false);
+        yield return null;
+        playerAnimator.SetBool(IsJumping, true);
+        yield return new WaitForSeconds(1f);
+        playerAnimator.SetBool(IsJumping, false);
+        yield return new WaitForSeconds(5f);
+        levelManager.enterNewLevel();
+        
+    }
+
     private bool hasEatenCandy = false;
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("CottonCandy") && isEating && !hasEatenCandy)
+        if (other.gameObject.CompareTag("CottonCandy") && isEating && !hasEatenCandy && !isJumping)
         {
             raccoonAudio.volume = 0.8f;
             raccoonAudio.pitch = Random.Range(2f, 3f);
@@ -264,10 +281,13 @@ public class RaccoonController : MonoBehaviour
                 //Destroy(gameObject);
             }
         }
-        if (other.gameObject.CompareTag("PotHole") && Input.GetKey(KeyCode.E))
+        if (other.gameObject.CompareTag("PotHole") && Input.GetKey(KeyCode.E) && !isJumping)
         {
             //enter the new level
-            levelManager.enterNewLevel();
+            Debug.Log(other.gameObject.name);
+            playerAnimator.SetBool(IsEating, false);
+            StartCoroutine(GoPotHole());
+            
         }
 
     }
