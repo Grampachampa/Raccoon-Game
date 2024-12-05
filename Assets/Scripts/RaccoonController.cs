@@ -226,7 +226,7 @@ public class RaccoonController : MonoBehaviour
         playerAnimator.SetBool(IsJumping, true);
         yield return new WaitForSeconds(1f);
         playerAnimator.SetBool(IsJumping, false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         levelManager.enterNewLevel();
         
     }
