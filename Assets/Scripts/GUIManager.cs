@@ -7,19 +7,17 @@ public class GUIManager : MonoBehaviour
     private Label candyCounterLabel;
 
     private int currentLevel = 1;
-    private RaccoonController raccoonController;
+    public LevelManager levelManager;  // Reference to LevelManager
 
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
 
         // Access UI elements by their IDs
         levelLabel = root.Q<Label>("Level");
-        candyCounterLabel = root.Q<Label>("HealthAmount");
+        candyCounterLabel = root.Q<Label>("CottonCandyCount");
 
-        // Find RaccoonController in the scene
-        raccoonController = FindObjectOfType<RaccoonController>();
-     
         // Initialize the UI
         UpdateLevelDisplay();
         UpdateCandyCounter();
@@ -47,11 +45,19 @@ public class GUIManager : MonoBehaviour
 
     private void UpdateCandyCounter()
     {
-        if (candyCounterLabel != null && raccoonController != null)
+        if (candyCounterLabel != null && levelManager != null)
         {
-            int candyCount = raccoonController.ateCandy;
-            string candyCountString = candyCount.ToString();
-            candyCounterLabel.text = $": {candyCountString}";
+            if (levelManager.cottonCandyCount <= 0)
+            { 
+                int roundedCandyCount = 0;
+                candyCounterLabel.text = $": {roundedCandyCount}";  // Format and display as a string
+               
+            }
+            else
+            {
+                int roundedCandyCount = (Mathf.CeilToInt(levelManager.cottonCandyCount))-1;  // Round to nearest int
+                candyCounterLabel.text = $": {roundedCandyCount}";  // Format and display as a string
+            }
         }
     }
 }

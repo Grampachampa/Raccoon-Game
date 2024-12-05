@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2512921933682440495}
-  - component: {fileID: 722159586833307965}
+  - component: {fileID: -8139877273102118126}
   m_Layer: 0
   m_Name: exit
   m_TagString: Untagged
@@ -155,7 +155,7 @@ Transform:
   - {fileID: 4909785606364410580}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &722159586833307965
+--- !u!82 &-8139877273102118126
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,7 +167,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0efe87a3e4fa345a6bfe1932d37dfb34, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.713
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -176,7 +176,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 4
-  MaxDistance: 100
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

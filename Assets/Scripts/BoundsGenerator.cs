@@ -422,7 +422,6 @@ public class BoundsGenerator : MonoBehaviour
         allWalls[2] = hedges;
 
     }
-
     void ResetWalls(){
         chosenWalls = allWalls[Random.Range(0, allWalls.Length)];
         wall3m = chosenWalls[0];
@@ -609,5 +608,10 @@ public class BoundsGenerator : MonoBehaviour
                 Instantiate(floor, npos, Quaternion.identity, root.transform);
             }
         }
+    }
+
+    public void Terminate(){
+        Destroy(root);
+        Destroy(this);
     }
 }
