@@ -5712,6 +5712,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Raccoon
       objectReference: {fileID: 0}
+    - target: {fileID: 512172159506703077, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: m_TagString
+      value: Raccoon
+      objectReference: {fileID: 0}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
       propertyPath: speed
@@ -6597,6 +6602,11 @@ PrefabInstance:
     - target: {fileID: 4960877322415215414, guid: 929a5afe3d93c544895aa5daffbfb131,
         type: 3}
       propertyPath: on
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960877322415215414, guid: 929a5afe3d93c544895aa5daffbfb131,
+        type: 3}
+      propertyPath: obstacles.Array.data[5].auxillaries.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6013879711329676740, guid: 929a5afe3d93c544895aa5daffbfb131,

@@ -84,6 +84,8 @@ public class BoundsGenerator : MonoBehaviour
 
     GridState[,] grid;
 
+    public Vector3 playerSpawnLocation;
+
     
     public enum GridState
     {
@@ -303,6 +305,8 @@ public class BoundsGenerator : MonoBehaviour
 
     void SpawnPrimitiveCube(Vector3 pos, Vector3 scale, Color color, bool translucent = false){
         GameObject visCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        visCube.GetComponent<Collider>().enabled = false;
+        visCube.tag = "Generated";
         visCube.GetComponent<Renderer>().material.color = color;
         visCube.transform.localScale = scale;
         visCube.transform.position = pos;
@@ -327,6 +331,15 @@ public class BoundsGenerator : MonoBehaviour
         MakeFloor();
         PlaceExitDoor();
         SpawnFloorElements();
+        MakePlayerLocation();
+    }
+
+    void MakePlayerLocation(){
+        FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+        playerSpawnLocation = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
+        grid[space.x, space.y] = GridState.GameObject;
+        UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
+
     }
 
     void SpawnFloorElements(){

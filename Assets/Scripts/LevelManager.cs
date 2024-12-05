@@ -67,7 +67,14 @@ public class LevelManager : MonoBehaviour
             DestroyOldLevel();
         }
         currentGenerator = Instantiate(generator, new Vector3(0, 0, 0), Quaternion.identity);
-        
+
+        InvokeNextFrame(SpawnPlayer);
+    }
+
+    public void SpawnPlayer()
+    {
+        GameObject raccoon = GameObject.Find("Raccoon");
+        raccoon.transform.position = currentGenerator.GetComponent<BoundsGenerator>().playerSpawnLocation; 
     }
 
     private void DestroyOldLevel(){
@@ -81,6 +88,24 @@ public class LevelManager : MonoBehaviour
         float levelDifficultyMod = 15f;
         return Mathf.Log(((timer + (levelCount + levelDifficultyMod))/20) + 1, 2.74f);
     }
+    public void InvokeNextFrame(System.Action function)
+    {
+        try
+        {
+            StartCoroutine(InvokeNextFrameCoroutine(function));	
+        }
+        catch
+        {
+            Debug.Log("Trying to invoke " + function.ToString() + " but it doesn't seem to exist");	
+        }			
+    }
+        
+    private IEnumerator InvokeNextFrameCoroutine(System.Action function)
+    {
+        yield return null;
+        function();
+    }
+
 
 }
 

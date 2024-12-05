@@ -10,6 +10,7 @@ TagManager:
   - Example
   - PotHole
   - Generated
+  - Raccoon
   layers:
   - Default
   - TransparentFX
