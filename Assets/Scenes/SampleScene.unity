@@ -897,6 +897,69 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 350735404}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &355487514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355487516}
+  - component: {fileID: 355487515}
+  - component: {fileID: 355487517}
+  m_Layer: 5
+  m_Name: GUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &355487515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355487514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 152c92fc1cb7392498137ebdf55dbecb, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: c80554425d75cd94f9e0a83a4ad5f922,
+    type: 3}
+  m_SortingOrder: 0
+--- !u!4 &355487516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355487514}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &355487517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355487514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40524952734c4dc09c8898e192f1436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelManager: {fileID: 0}
 --- !u!1001 &358028769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2479,6 +2542,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2493270481369785915, guid: b36812acbd8e7f14f8da303705f47496,
     type: 3}
   m_PrefabInstance: {fileID: 775688157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &783455137 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5033047528228215736, guid: b2b942de678408243848118d94a22712,
+    type: 3}
+  m_PrefabInstance: {fileID: 520043167}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &792839085
 PrefabInstance:
@@ -5423,6 +5492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
+      propertyPath: waterSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
       propertyPath: eatingSounds.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -5451,6 +5525,31 @@ PrefabInstance:
       propertyPath: deathSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 50212b3fdece046eab72a3295b5df328, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: acf0e7c8014004b1096dc84489f823bc, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3327a797c98734a339b4b4536b4d8a5e, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6260fc5ef50f14dd58122940653e82cf, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e93501c3776484c54bbb584f5ad8a796, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6909897a7beb4589a40c4150922f48d, type: 3}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
       propertyPath: eatingSounds.Array.data[0]
