@@ -5,41 +5,35 @@ public class GUIManager : MonoBehaviour
 {
     private Label levelLabel;
     private Label candyCounterLabel;
-
-    private int currentLevel = 1;
-    public LevelManager levelManager;  // Reference to LevelManager
+    
+    public LevelManager levelManager;
+    private float level;
 
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         levelManager = GameObject.FindObjectOfType<LevelManager>();
 
-        // Access UI elements by their IDs
+        level = levelManager.levelCount;
+        
         levelLabel = root.Q<Label>("Level");
         candyCounterLabel = root.Q<Label>("CottonCandyCount");
-
-        // Initialize the UI
+        
         UpdateLevelDisplay();
         UpdateCandyCounter();
     }
 
     void Update()
     {
-        // Continuously update the candy counter
         UpdateCandyCounter();
     }
-
-    public void SetLevel(int level)
-    {
-        currentLevel = level;
-        UpdateLevelDisplay();
-    }
-
+    
     private void UpdateLevelDisplay()
     {
         if (levelLabel != null)
         {
-            levelLabel.text = $"Level {currentLevel}";
+            level = levelManager.levelCount;
+            levelLabel.text = $"Level {level}";
         }
     }
 
@@ -50,13 +44,12 @@ public class GUIManager : MonoBehaviour
             if (levelManager.cottonCandyCount <= 0)
             { 
                 int roundedCandyCount = 0;
-                candyCounterLabel.text = $": {roundedCandyCount}";  // Format and display as a string
-               
+                candyCounterLabel.text = $": {roundedCandyCount}";
             }
             else
             {
-                int roundedCandyCount = (Mathf.CeilToInt(levelManager.cottonCandyCount))-1;  // Round to nearest int
-                candyCounterLabel.text = $": {roundedCandyCount}";  // Format and display as a string
+                int roundedCandyCount = Mathf.CeilToInt(levelManager.cottonCandyCount) - 1;
+                candyCounterLabel.text = $": {roundedCandyCount}";
             }
         }
     }
