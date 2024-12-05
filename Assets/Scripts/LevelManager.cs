@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
         //GUI.ReportToPlayer("Oh no, you died! Your raccoon family’s fate remains uncertain.");
 
     }
+    
     private void enterNewLevel()
     {
         //GUI.ReportToPlayer("Your raccoon kids are proud of you! Keep going!");

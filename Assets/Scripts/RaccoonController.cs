@@ -25,7 +25,8 @@ public class RaccoonController : MonoBehaviour
     
     private Vector3 velocity;
     private float gravity = -9.81f;
-    
+
+    private bool dead = false;
     private bool canDash = true;
     private bool isDashing = false;
     private float dashingPower = 14f;
@@ -33,10 +34,11 @@ public class RaccoonController : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool isEating = false;
     private bool isDeath = false;
+
+    public int ateCandy = 0; // to keep track of amount of cotton candy eaten
     
-    
-    private float speed = 2f;
-    private float slowSpeed = 0.03f;
+    private float speed = 3.5f;
+    private float slowSpeed = 2f;
     public float currentSpeed;
     private float rotationSpeed = 800f;
     
@@ -62,6 +64,7 @@ public class RaccoonController : MonoBehaviour
     {
         movementAudio = GetComponents<AudioSource>()[0];
         raccoonAudio = GetComponents<AudioSource>()[1];
+        currentSpeed = speed;
     }
     
     void Update()
@@ -111,15 +114,13 @@ public class RaccoonController : MonoBehaviour
             playerAnimator.SetBool(IsSwimming, false);
         }
 
-        currentSpeed = speed;
-
         // Move the character
         controller.Move(movement * (currentSpeed * Time.deltaTime));
         
         Vector3 movementDirection = new Vector3(movement.x, 0, movement.z);
         movementDirection.Normalize();
         
-        transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
+        transform.Translate(movementDirection * currentSpeed * Time.deltaTime, Space.World);
 
         if (movementDirection != Vector3.zero)
         {
@@ -204,17 +205,26 @@ public class RaccoonController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private bool hasEatenCandy = false;
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("CottonCandy") && isEating)
+        if (other.gameObject.CompareTag("CottonCandy") && isEating && !hasEatenCandy)
         {
             raccoonAudio.volume = 0.8f;
             raccoonAudio.pitch = Random.Range(2f, 3f);
             raccoonAudio.clip = eatingSounds[Random.Range(0, eatingSounds.Length)];
             raccoonAudio.Play();
+            
             Destroy(other.gameObject);
             levelManager.hp += 60;
+            ateCandy++;
+            
+            hasEatenCandy = true;
+            
+            StartCoroutine(ResetEatingFlag());
         }
+        
         if (other.gameObject.CompareTag("Puddle"))
         {
             if (levelManager.hp >= 0.01 && !isDashing)
@@ -222,8 +232,9 @@ public class RaccoonController : MonoBehaviour
                 currentSpeed = slowSpeed;
                 levelManager.hp--;
             }
-            else if (levelManager.hp <= 0)
+            else if (levelManager.hp <= 0 && !dead)
             {
+                dead = true;
                 StartCoroutine(Die());
                 //Destroy(gameObject);
             }
@@ -234,8 +245,9 @@ public class RaccoonController : MonoBehaviour
             {
                 levelManager.hp--;
             }
-            else if (levelManager.hp <= 0)
+            else if (levelManager.hp <= 0 && !dead)
             {
+                dead = true;
                 StartCoroutine(Die());
                 //Destroy(gameObject);
             }
@@ -263,6 +275,11 @@ public class RaccoonController : MonoBehaviour
         }
         */ 
         
+    }
+    private IEnumerator ResetEatingFlag()
+    {
+        yield return new WaitForSeconds(0.2f);
+        hasEatenCandy = false;
     }
     private void OnTriggerExit(Collider other)
     {
