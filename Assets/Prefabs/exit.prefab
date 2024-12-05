@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: -8139877273102118126}
   m_Layer: 0
   m_Name: exit
-  m_TagString: Untagged
+  m_TagString: PotHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 4595228659171253517}
   m_Layer: 0
   m_Name: tractor-tire-small
-  m_TagString: Untagged
+  m_TagString: PotHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -450,6 +450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tractor-tire-small
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145150232714562945, guid: 771e26f772e1a0440b1592c5dedfcb25,
+        type: 3}
+      propertyPath: m_TagString
+      value: PotHole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
