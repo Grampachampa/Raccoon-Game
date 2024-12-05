@@ -47,7 +47,7 @@ public class GUIManager : MonoBehaviour
     {
         if (candyCounterLabel != null && levelManager != null)
         {
-            if (levelManager.cottonCandyCount == 0)
+            if (levelManager.cottonCandyCount <= 0)
             { 
                 int roundedCandyCount = 0;
                 candyCounterLabel.text = $": {roundedCandyCount}";  // Format and display as a string
@@ -55,7 +55,7 @@ public class GUIManager : MonoBehaviour
             }
             else
             {
-                int roundedCandyCount = (Mathf.RoundToInt(levelManager.cottonCandyCount))-1;  // Round to nearest int
+                int roundedCandyCount = (Mathf.CeilToInt(levelManager.cottonCandyCount))-1;  // Round to nearest int
                 candyCounterLabel.text = $": {roundedCandyCount}";  // Format and display as a string
             }
         }
