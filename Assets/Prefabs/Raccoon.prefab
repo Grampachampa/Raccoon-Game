@@ -711,7 +711,7 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 9056494128522085810}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!95 &4690034466703811844
 Animator:
   serializedVersion: 5
@@ -752,10 +752,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.28
   m_Height: 0.9700697
   m_Direction: 2
-  m_Center: {x: -0.00035232306, y: 0.3, z: 0.15284833}
+  m_Center: {x: -0.01, y: 0.47, z: 0.14}
 --- !u!114 &670233584693944780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,7 +950,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.36657348
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1046,7 +1046,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.35714918
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

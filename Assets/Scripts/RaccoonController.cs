@@ -221,6 +221,7 @@ public class RaccoonController : MonoBehaviour
             {
                 currentSpeed = slowSpeed;
                 levelManager.hp--;
+                //levelManager.hp -= (int)(Time.deltaTime * 10);
             }
             else if (levelManager.hp <= 0)
             {
@@ -233,6 +234,7 @@ public class RaccoonController : MonoBehaviour
             if (levelManager.hp >= 0.01 && !isDashing)
             {
                 levelManager.hp--;
+                //levelManager.hp -= (int)(Time.deltaTime * 5);
             }
             else if (levelManager.hp <= 0)
             {
@@ -255,13 +257,11 @@ public class RaccoonController : MonoBehaviour
             levelManager.cottonCandyCount++;
         } // not sure if also wanna add this
         */
-        /*
-        if (other.gameObject.CompareTag("PotHole"))
+        if (other.gameObject.CompareTag("PotHole") && Input.GetKey(KeyCode.E))
         {
             //enter the new level
-            levelManager.enterNewLevel()
+            //levelManager.enterNewLevel();
         }
-        */ 
         
     }
     private void OnTriggerExit(Collider other)
