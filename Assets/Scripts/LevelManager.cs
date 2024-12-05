@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
 
     public int hp = 60 ;
     public float cottonCandyCount;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class LevelManager : MonoBehaviour
         {
             endGame();
         }
-        
+        Debug.Log(cottonCandyCount);
     }
     private void endGame()
     {
