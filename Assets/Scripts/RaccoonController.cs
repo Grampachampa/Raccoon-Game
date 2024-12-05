@@ -33,7 +33,8 @@ public class RaccoonController : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool isEating = false;
     private bool isDeath = false;
-    
+
+    public int ateCandy = 0; // to keep track of amount of cotton candy eaten
     
     private float speed = 3.5f;
     private float slowSpeed = 0.03f;
@@ -204,17 +205,26 @@ public class RaccoonController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private bool hasEatenCandy = false;
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("CottonCandy") && isEating)
+        if (other.gameObject.CompareTag("CottonCandy") && isEating && !hasEatenCandy)
         {
             raccoonAudio.volume = 0.8f;
             raccoonAudio.pitch = Random.Range(2f, 3f);
             raccoonAudio.clip = eatingSounds[Random.Range(0, eatingSounds.Length)];
             raccoonAudio.Play();
+            
             Destroy(other.gameObject);
             levelManager.hp += 60;
+            ateCandy++;
+            
+            hasEatenCandy = true;
+            
+            StartCoroutine(ResetEatingFlag());
         }
+        
         if (other.gameObject.CompareTag("Puddle"))
         {
             if (levelManager.hp >= 0.01 && !isDashing)
@@ -263,6 +273,11 @@ public class RaccoonController : MonoBehaviour
         }
         */ 
         
+    }
+    private IEnumerator ResetEatingFlag()
+    {
+        yield return new WaitForSeconds(0.2f);
+        hasEatenCandy = false;
     }
     private void OnTriggerExit(Collider other)
     {
