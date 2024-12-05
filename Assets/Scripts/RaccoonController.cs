@@ -257,8 +257,14 @@ public class RaccoonController : MonoBehaviour
                 //Destroy(gameObject);
             }
         }
-    }
+        if (other.gameObject.CompareTag("PotHole") && Input.GetKey(KeyCode.E))
+        {
+            //enter the new level
+            levelManager.enterNewLevel();
+        }
 
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
        
@@ -272,13 +278,9 @@ public class RaccoonController : MonoBehaviour
             levelManager.cottonCandyCount++;
         } // not sure if also wanna add this
         */
-        if (other.gameObject.CompareTag("PotHole") && Input.GetKey(KeyCode.E))
-        {
-            //enter the new level
-            //levelManager.enterNewLevel();
-        }
-        
+      
     }
+
     private IEnumerator ResetEatingFlag()
     {
         yield return new WaitForSeconds(0.2f);
