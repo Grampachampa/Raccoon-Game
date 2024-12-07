@@ -5769,6 +5769,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
+      propertyPath: waterSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
       propertyPath: eatingSounds.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -5797,6 +5802,31 @@ PrefabInstance:
       propertyPath: deathSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 50212b3fdece046eab72a3295b5df328, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: acf0e7c8014004b1096dc84489f823bc, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3327a797c98734a339b4b4536b4d8a5e, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6260fc5ef50f14dd58122940653e82cf, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e93501c3776484c54bbb584f5ad8a796, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: waterSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6909897a7beb4589a40c4150922f48d, type: 3}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
       propertyPath: eatingSounds.Array.data[0]

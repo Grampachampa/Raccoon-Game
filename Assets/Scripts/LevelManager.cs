@@ -46,8 +46,6 @@ public class LevelManager : MonoBehaviour
         }
 
         timer += Time.deltaTime;
-        
-        Debug.Log(cottonCandyCount);
     }
     private void endGame()
     {
@@ -69,7 +67,12 @@ public class LevelManager : MonoBehaviour
             DestroyOldLevel();
         }
         currentGenerator = Instantiate(generator, new Vector3(0, 0, 0), Quaternion.identity);
-
+        
+        // Play next song
+        globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
+        globalAudio.Play();
+        
         InvokeNextFrame(SpawnPlayer);
     }
 
