@@ -2734,52 +2734,52 @@ PrefabInstance:
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.6
+      value: -9.573
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.44
+      value: 9.403
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.42025304
+      value: -0.4456273
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0018286973
+      value: -0.008156819
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.90737206
+      value: -0.8951657
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0077565215
+      value: 0.005305175
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.718
+      value: 0.961
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -229.706
+      value: -232.925
       objectReference: {fileID: 0}
     - target: {fileID: 8576590579074375542, guid: 90d955e111a02ad4bbffeed013bb3cb8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.564
+      value: 0.566
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

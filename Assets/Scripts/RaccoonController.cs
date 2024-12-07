@@ -211,6 +211,7 @@ public class RaccoonController : MonoBehaviour
         playerAnimator.SetBool(IsDead, true);
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        SceneManager.LoadScene("End");
     }
 
     private bool hasEatenCandy = false;

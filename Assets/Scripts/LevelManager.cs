@@ -56,7 +56,6 @@ public class LevelManager : MonoBehaviour
         
         //GUI.ReportToPlayer("You died!", "Score:", levelCount);
         
-        SceneManager.LoadScene("End");
         PlayerPrefs.SetFloat("FinalScore", levelCount); // Save the score to be displayed later
 
     }
