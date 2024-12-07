@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private GUIManager GUI;
+    [SerializeField] private GUIManager GUI;
     private AudioSource globalAudio;
 
     [SerializeField] private AudioClip[] levelMusic;
@@ -40,25 +40,30 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         cottonCandyCount = hp / 60f;
-        if (cottonCandyCount < 0)
+        if (cottonCandyCount <= 0)
         {
             endGame();
         }
 
         timer += Time.deltaTime;
+        
+        //Debug.Log(cottonCandyCount);
     }
     private void endGame()
     {
         //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         
-        //GUI.ReportToPlayer("Oh no, you died! Your raccoon family’s fate remains uncertain.");
+        //GUI.ReportToPlayer("You died!", "Score:", levelCount);
+        
+        SceneManager.LoadScene("End");
+        PlayerPrefs.SetFloat("FinalScore", levelCount); // Save the score to be displayed later
 
     }
     
     public void enterNewLevel()
     {
-        //GUI.ReportToPlayer("Your raccoon kids are proud of you! Keep going!");
+        //GUI.ReportToPlayer("Your raccoon kids are proud of you", "Keep going!");
         
         levelCount++;
         difficulty = CalculateDifficulty();
@@ -67,12 +72,7 @@ public class LevelManager : MonoBehaviour
             DestroyOldLevel();
         }
         currentGenerator = Instantiate(generator, new Vector3(0, 0, 0), Quaternion.identity);
-        
-        // Play next song
-        globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
-        globalAudio.Play();
-        
+
         InvokeNextFrame(SpawnPlayer);
     }
 

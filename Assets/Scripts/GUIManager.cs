@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GUIManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class GUIManager : MonoBehaviour
     
     public LevelManager levelManager;
     private float level;
-
+    
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -16,8 +17,8 @@ public class GUIManager : MonoBehaviour
 
         level = levelManager.levelCount;
         
-        levelLabel = root.Q<Label>("Level");
-        candyCounterLabel = root.Q<Label>("CottonCandyCount");
+        levelLabel = root.Q<Label>("level");
+        candyCounterLabel = root.Q<Label>("cottonCandyCount");
         
         UpdateLevelDisplay();
         UpdateCandyCounter();
