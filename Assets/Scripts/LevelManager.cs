@@ -19,13 +19,13 @@ public class LevelManager : MonoBehaviour
     public float cottonCandyCount;
 
     public float timer = 0f;
-    public float levelCount = 0f;
+    public float levelCount = 1f;
     public static float difficulty = 1;
     void Start()
     {
         // LoadStartScene();
         enterNewLevel();
-        //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
+        GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
         // Setting up the level music
         globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
@@ -54,13 +54,13 @@ public class LevelManager : MonoBehaviour
         //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         
-        //GUI.ReportToPlayer("Oh no, you died! Your raccoon family’s fate remains uncertain.");
+        GUI.ReportToPlayer("You died!", "Score:", levelCount);
 
     }
     
     public void enterNewLevel()
     {
-        //GUI.ReportToPlayer("Your raccoon kids are proud of you! Keep going!");
+        GUI.ReportToPlayer("Your raccoon kids are proud of you", "Keep going!");
         
         levelCount++;
         difficulty = CalculateDifficulty();

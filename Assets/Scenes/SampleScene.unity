@@ -1928,7 +1928,7 @@ MonoBehaviour:
   hp: 60
   cottonCandyCount: 1
   timer: 0
-  levelCount: 0
+  levelCount: 1
 --- !u!4 &610630022
 Transform:
   m_ObjectHideFlags: 0
