@@ -415,7 +415,7 @@ public class BoundsGenerator : MonoBehaviour
         GameObject exit = Instantiate(exitDoor, pos, rotation, root.transform);
         exit.tag = "PotHole";
     }
-    void SpawnSprinklers(float defaultSprinklerDensity = 5/1500f){
+    void SpawnSprinklers(float defaultSprinklerDensity = 7/1500f){
         int numSprinklers = Mathf.RoundToInt(LevelManager.difficulty * defaultSprinklerDensity * freeSpacesList.Count);
         
         for (int i = 0; i < numSprinklers; i++)
