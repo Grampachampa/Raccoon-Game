@@ -8,6 +8,9 @@ TagManager:
   - Sprinkler
   - Puddle
   - Example
+  - PotHole
+  - Generated
+  - Raccoon
   layers:
   - Default
   - TransparentFX

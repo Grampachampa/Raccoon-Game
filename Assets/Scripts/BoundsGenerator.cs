@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class BoundsGenerator : MonoBehaviour
@@ -42,6 +43,7 @@ public class BoundsGenerator : MonoBehaviour
     };
 
     [SerializeField] GameObjectData[] obstacles;
+    [SerializeField] GameObjectData[] floorElements;
 
     public struct FreeSpaces {
         public int x;
@@ -81,6 +83,8 @@ public class BoundsGenerator : MonoBehaviour
     List<FreeSpaces> freeSpacesList = new List<FreeSpaces>();
 
     GridState[,] grid;
+
+    public Vector3 playerSpawnLocation;
 
     
     public enum GridState
@@ -161,8 +165,8 @@ public class BoundsGenerator : MonoBehaviour
                 Quaternion rotation = CalculateRotation(go.rotation, space);
 
                 GameObject obj = go.objs[Random.Range(0, go.objs.Length)];
-                Instantiate(obj, pos, rotation, root.transform);
-                
+                GameObject o = Instantiate(obj, pos, rotation, root.transform);
+                o.tag = "Generated";
                 if (go.auxillaries.Length > 0){
                     float auxU1 = Random.Range(0f,1f); // Random value between 0 and 1
                     float auxU2 = Random.Range(0f,1f); // Another random value between 0 and 1
@@ -224,7 +228,8 @@ public class BoundsGenerator : MonoBehaviour
         Vector3 pos = new Vector3(xAP - maxWidth - wPadding, 0, house_pos - yAP + 3/2 + 1 + lPadding);
         Quaternion rotation = CalculateRotation(RotationMode.Random, new FreeSpaces{x = xAP, y = yAP});
         GameObject obj = auxillaries[Random.Range(0, auxillaries.Length)];
-        Instantiate(obj, pos, rotation, root.transform);        
+        GameObject aux = Instantiate(obj, pos, rotation, root.transform);
+        aux.tag = "Generated";        
     }
     Quaternion CalculateRotation(RotationMode rotation, FreeSpaces position){
 
@@ -300,6 +305,8 @@ public class BoundsGenerator : MonoBehaviour
 
     void SpawnPrimitiveCube(Vector3 pos, Vector3 scale, Color color, bool translucent = false){
         GameObject visCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        visCube.GetComponent<Collider>().enabled = false;
+        visCube.tag = "Generated";
         visCube.GetComponent<Renderer>().material.color = color;
         visCube.transform.localScale = scale;
         visCube.transform.position = pos;
@@ -323,6 +330,65 @@ public class BoundsGenerator : MonoBehaviour
         SpawnCottonCandy();
         MakeFloor();
         PlaceExitDoor();
+        SpawnFloorElements();
+        MakePlayerLocation();
+    }
+
+    void MakePlayerLocation(){
+        FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+        playerSpawnLocation = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
+        grid[space.x, space.y] = GridState.GameObject;
+        UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
+
+    }
+
+    void SpawnFloorElements(){
+
+        for (int i = 0; i < floorElements.Length; i++ ){
+            GameObjectData panel = floorElements[i];
+            if (panel.objs.Length == 0) continue;
+
+            float u1 = Random.Range(0f,1f); // Random value between 0 and 1
+            float u2 = Random.Range(0f,1f); // Another random value between 0 and 1
+
+            // Apply the Box-Muller transform
+            double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2);
+            
+            // Scale to the desired mean and standard deviation
+            double randNormal = panel.mean + panel.stdDev * randStdNormal;
+
+            // Convert to an integer
+            int num_instances = Math.Clamp((int)Math.Round(randNormal), 0, 50);
+
+            for (int j = 0; j < num_instances; j++)
+            { 
+                FreeSpaces space = new FreeSpaces();
+                bool found = false;
+                for (int r = 0; r < 100; r++){
+                    space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+                    if (checkFreeRadius(space.x, space.y, panel.diameter, new GridState[]{GridState.EmptyAvailable})){
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found){
+                    break;
+                }
+
+                Vector3 pos = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
+
+                Quaternion rotation = CalculateRotation(panel.rotation, space);
+
+                GameObject obj = panel.objs[Random.Range(0, panel.objs.Length)];
+                GameObject fe = Instantiate(obj, pos, rotation, root.transform);
+                fe.tag = "Generated";
+                }
+
+            
+
+        }
+
     }
 
     void PlaceExitDoor(){
@@ -333,7 +399,8 @@ public class BoundsGenerator : MonoBehaviour
         UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
         Vector3 pos = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
         Quaternion rotation = Quaternion.Euler(0, 0, 0);
-        Instantiate(exitDoor, pos, rotation, root.transform);
+        GameObject exit = Instantiate(exitDoor, pos, rotation, root.transform);
+        exit.tag = "PotHole";
     }
     void SpawnSprinklers(int defaultSprinklerCount = 5){
         int numSprinklers = Mathf.RoundToInt(LevelManager.difficulty * defaultSprinklerCount); ;
@@ -348,7 +415,8 @@ public class BoundsGenerator : MonoBehaviour
             Vector3 pos = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
 
             Quaternion rotation = Quaternion.Euler(-90, Random.Range(0, 360), 0);
-            Instantiate(sprinkler, pos, rotation, root.transform);
+            GameObject sp = Instantiate(sprinkler, pos, rotation, root.transform);
+            sp.tag = "Generated";
         }
     }
     void SpawnCottonCandy(int numCandy = 3){
@@ -362,7 +430,8 @@ public class BoundsGenerator : MonoBehaviour
 
             Vector3 pos = new Vector3(space.x - maxWidth - wPadding, cottonCandyY, house_pos - space.y + 3/2 + 1 + lPadding);
             Quaternion rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            Instantiate(cottonCandy, pos, rotation, root.transform);
+            GameObject cc = Instantiate(cottonCandy, pos, rotation, root.transform);
+            cc.tag = "CottonCandy";
         }
     }
 
@@ -436,7 +505,8 @@ public class BoundsGenerator : MonoBehaviour
     void SpawnHouse(){  
         int houseIndex = Random.Range(0, houses.Length);
         
-        Instantiate(houses[houseIndex], new Vector3(0, 0, house_pos), Quaternion.identity, root.transform);
+        GameObject house = Instantiate(houses[houseIndex], new Vector3(0, 0, house_pos), Quaternion.identity, root.transform);
+        house.tag = "Generated";
         int lenoffset = houseIndex == 0? 2 : -2;
         int radius = houseIndex == 0? 8 : 9; 
         grid[maxWidth + wPadding, lPadding] = GridState.Wall;
@@ -498,8 +568,10 @@ public class BoundsGenerator : MonoBehaviour
             Quaternion rot = Quaternion.Euler(0, 90, 0);
 
             GameObject fenceToUse = WallLengths[fence_length];
-            Instantiate(fenceToUse, pos1, rot, root.transform);
-            Instantiate(fenceToUse, pos2, rot, root.transform);
+            GameObject f1 = Instantiate(fenceToUse, pos1, rot, root.transform);
+            GameObject f2 = Instantiate(fenceToUse, pos2, rot, root.transform);
+            f1.tag = "Generated";
+            f2.tag = "Generated";
             
             for (int j = 0; j < fence_length; j++)
             {
@@ -536,8 +608,11 @@ public class BoundsGenerator : MonoBehaviour
                     Quaternion negRot = diff>0? Quaternion.identity: Quaternion.Euler(0, 180, 0);
                     Quaternion posRot = diff<0? Quaternion.identity: Quaternion.Euler(0, 180, 0);
 
-                    Instantiate(wallToUse, negPos, negRot, root.transform);
-                    Instantiate(wallToUse, posPos, posRot, root.transform);
+                    GameObject w1 = Instantiate(wallToUse, negPos, negRot, root.transform);
+                    GameObject w2 = Instantiate(wallToUse, posPos, posRot, root.transform);
+
+                    w1.tag = "Generated";
+                    w2.tag = "Generated";
 
                     for (int j = 0; j < segmentLen; j++)
                     {
@@ -579,9 +654,10 @@ public class BoundsGenerator : MonoBehaviour
             int wallLen = Mathf.Clamp(3, 1, currentWidth);
             GameObject wallToUse = WallLengths[wallLen];
 
-            Instantiate(wallToUse, negPos, negRot, root.transform);
-            Instantiate(wallToUse, posPos, posRot, root.transform);
-
+            GameObject w1 = Instantiate(wallToUse, negPos, negRot, root.transform);
+            GameObject w2 = Instantiate(wallToUse, posPos, posRot, root.transform);
+            w1.tag = "Generated";
+            w2.tag = "Generated";
             currentWidth -= wallLen;
 
             for (int j = 0; j < wallLen; j++)
@@ -604,13 +680,44 @@ public class BoundsGenerator : MonoBehaviour
                 float ypos = (house_pos * 2) - i;
                 Vector3 pos = new Vector3(xpos, 0, ypos);
                 Vector3 npos = new Vector3(-xpos+20, 0, ypos);
-                Instantiate(floor, pos, Quaternion.identity, root.transform);
-                Instantiate(floor, npos, Quaternion.identity, root.transform);
+                GameObject f1 = Instantiate(floor, pos, Quaternion.identity, root.transform);
+                f1.tag = "Generated";
+                GameObject f2 = Instantiate(floor, npos, Quaternion.identity, root.transform);
+                f2.tag = "Generated";
             }
         }
     }
 
     public void Terminate(){
+        // destroy all generated objects
+        GameObject[] generatedObjects = GameObject.FindGameObjectsWithTag("Generated");
+        foreach (GameObject go in generatedObjects)
+        {
+            Destroy(go);
+        }
+
+        // destroy all objects with the puddle tag
+        GameObject[] puddles = GameObject.FindGameObjectsWithTag("Puddle");
+        foreach (GameObject go in puddles)
+        {
+            Destroy(go);
+        }
+
+        // Destroy all cotton candy tagged objs
+
+        GameObject[] cottonCandy = GameObject.FindGameObjectsWithTag("CottonCandy");
+        foreach (GameObject go in cottonCandy)
+        {
+            Destroy(go);
+        }
+
+        GameObject[] pothole = GameObject.FindGameObjectsWithTag("PotHole");
+        foreach (GameObject go in pothole)
+        {
+            Destroy(go);
+        }
+
+
         Destroy(root);
         Destroy(this);
     }

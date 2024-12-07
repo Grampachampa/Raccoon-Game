@@ -75,7 +75,7 @@ MonoBehaviour:
     - {fileID: 5401692082392384369, guid: 41e67863981a4194fb55c5d4a7f2fdd2, type: 3}
     - {fileID: 3418182226565921597, guid: 00e7c5ec28f283c4084ecfc892727797, type: 3}
     - {fileID: 8283515134016864238, guid: e83b80eac24107f41adbb5c941f74a0f, type: 3}
-    mean: 2
+    mean: 3
     rotation: 0
     stdDev: 3
     houseBias: 0
@@ -152,10 +152,7 @@ MonoBehaviour:
     stdDev: 2
     houseBias: 0.5
     diameter: 3
-    auxillaries:
-    - {fileID: 1397977347240724296, guid: a6281bb590c0ba442ba8a2368d2e77e7, type: 3}
-    - {fileID: 5445341652586722451, guid: 1a75a633dde0cbf4090023a5b2ad3eb9, type: 3}
-    - {fileID: 1688991925751194253, guid: 976d90d46d281084198a559c5dff5455, type: 3}
+    auxillaries: []
     auxMean: 1
     auxStdDev: 1
   - name: Trees
@@ -193,3 +190,21 @@ MonoBehaviour:
     auxillaries: []
     auxMean: 0
     auxStdDev: 0
+  floorElements:
+  - name: Grass
+    objs:
+    - {fileID: 8358101648614693880, guid: 52b81639f4b0ece4799b58c50f85be23, type: 3}
+    - {fileID: 2913058449033427906, guid: 7cd329db56262dc4494de7bea8310652, type: 3}
+    - {fileID: 1251930967894619736, guid: a4e74e80809e8224dbfa6d91f063b149, type: 3}
+    - {fileID: 1748590322675348165, guid: 955092d24d36700449862daa5a757b21, type: 3}
+    - {fileID: 7677612587439440926, guid: 9ebf162377675b247bf736cdf5ca6f28, type: 3}
+    - {fileID: 7808804811025987923, guid: f5a6b9b0447884b4fad2127ae3221cfe, type: 3}
+    mean: 200
+    rotation: 0
+    stdDev: 20
+    houseBias: 0
+    diameter: 0
+    auxillaries: []
+    auxMean: 0
+    auxStdDev: 0
+  playerSpawnLocation: {x: 0, y: 0, z: 0}

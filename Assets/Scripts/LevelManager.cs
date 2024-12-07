@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -16,18 +17,18 @@ public class LevelManager : MonoBehaviour
 
     public int hp = 60 ;
     public float cottonCandyCount;
-    // Start is called before the first frame update
 
     public float timer = 0f;
-    public float levelCount = 1f;
+    public float levelCount = 0f;
     public static float difficulty = 1;
     void Start()
     {
+        // LoadStartScene();
         enterNewLevel();
-       //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
+        //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
-       // Setting up the level music
-       globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        // Setting up the level music
+        globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
 
         globalAudio.volume = 0.17f;
         globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
@@ -46,6 +47,7 @@ public class LevelManager : MonoBehaviour
 
         timer += Time.deltaTime;
         
+        Debug.Log(cottonCandyCount);
     }
     private void endGame()
     {
@@ -56,9 +58,10 @@ public class LevelManager : MonoBehaviour
 
     }
     
-    private void enterNewLevel()
+    public void enterNewLevel()
     {
         //GUI.ReportToPlayer("Your raccoon kids are proud of you! Keep going!");
+        
         levelCount++;
         difficulty = CalculateDifficulty();
         if (currentGenerator != null)
@@ -66,12 +69,18 @@ public class LevelManager : MonoBehaviour
             DestroyOldLevel();
         }
         currentGenerator = Instantiate(generator, new Vector3(0, 0, 0), Quaternion.identity);
-        
+
+        InvokeNextFrame(SpawnPlayer);
+    }
+
+    public void SpawnPlayer()
+    {
+        GameObject raccoon = GameObject.Find("Raccoon");
+        raccoon.transform.position = currentGenerator.GetComponent<BoundsGenerator>().playerSpawnLocation; 
     }
 
     private void DestroyOldLevel(){
-        GameObject generator = GameObject.Find("Generator");
-        BoundsGenerator bounds = generator.GetComponent<BoundsGenerator>();
+        BoundsGenerator bounds = currentGenerator.GetComponent<BoundsGenerator>();
         bounds.Terminate();
         
     }
@@ -81,6 +90,32 @@ public class LevelManager : MonoBehaviour
         float levelDifficultyMod = 15f;
         return Mathf.Log(((timer + (levelCount + levelDifficultyMod))/20) + 1, 2.74f);
     }
+    public void InvokeNextFrame(System.Action function)
+    {
+        try
+        {
+            StartCoroutine(InvokeNextFrameCoroutine(function));	
+        }
+        catch
+        {
+            Debug.Log("Trying to invoke " + function.ToString() + " but it doesn't seem to exist");	
+        }			
+    }
+        
+    private IEnumerator InvokeNextFrameCoroutine(System.Action function)
+    {
+        yield return null;
+        function();
+    }
+    
+    static void LoadStartScene()
+    {
+        if (SceneManager.GetActiveScene().name != "Start")
+        {
+            SceneManager.LoadScene("Start");
+        }
+    }
+
 
 }
 
