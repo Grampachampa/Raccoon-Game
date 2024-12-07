@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private GUIManager GUI;
+    [SerializeField] private GUIManager GUI;
     private AudioSource globalAudio;
 
     [SerializeField] private AudioClip[] levelMusic;
@@ -19,13 +19,13 @@ public class LevelManager : MonoBehaviour
     public float cottonCandyCount;
 
     public float timer = 0f;
-    public float levelCount = 1f;
+    public float levelCount = 0f;
     public static float difficulty = 1;
     void Start()
     {
         // LoadStartScene();
         enterNewLevel();
-        GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
+        //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
         // Setting up the level music
         globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
@@ -40,27 +40,30 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         cottonCandyCount = hp / 60f;
-        if (cottonCandyCount < 0)
+        if (cottonCandyCount <= 0)
         {
             endGame();
         }
 
         timer += Time.deltaTime;
         
-        Debug.Log(cottonCandyCount);
+        //Debug.Log(cottonCandyCount);
     }
     private void endGame()
     {
         //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         
-        GUI.ReportToPlayer("You died!", "Score:", levelCount);
+        //GUI.ReportToPlayer("You died!", "Score:", levelCount);
+        
+        SceneManager.LoadScene("End");
+        PlayerPrefs.SetFloat("FinalScore", levelCount); // Save the score to be displayed later
 
     }
     
     public void enterNewLevel()
     {
-        GUI.ReportToPlayer("Your raccoon kids are proud of you", "Keep going!");
+        //GUI.ReportToPlayer("Your raccoon kids are proud of you", "Keep going!");
         
         levelCount++;
         difficulty = CalculateDifficulty();
