@@ -25,6 +25,7 @@ public class GUIManager : MonoBehaviour
 
     void Update()
     {
+        UpdateLevelDisplay();
         UpdateCandyCounter();
     }
     
