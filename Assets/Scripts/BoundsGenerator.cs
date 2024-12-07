@@ -326,16 +326,23 @@ public class BoundsGenerator : MonoBehaviour
         SpawnHouse();
         MakeWalls();
         UpdateGrid();
+        MakePlayerLocation();
         SpawnSprinklers();
         SpawnCottonCandy();
         MakeFloor();
         PlaceExitDoor();
         SpawnFloorElements();
-        MakePlayerLocation();
     }
 
     void MakePlayerLocation(){
-        FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+        FreeSpaces space = new FreeSpaces();
+        for (int r = 0; r < 1000; r++){
+            space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+            if (checkFreeRadius(space.x, space.y, 2, new GridState[]{GridState.EmptyAvailable})){
+                break;
+            }
+        }
+
         playerSpawnLocation = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
         grid[space.x, space.y] = GridState.GameObject;
         UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
