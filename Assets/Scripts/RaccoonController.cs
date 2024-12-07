@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class RaccoonController : MonoBehaviour
@@ -71,6 +72,11 @@ public class RaccoonController : MonoBehaviour
     
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Start")
+        {
+            canDash = false;
+        }
+        
         if (isDashing)
         {
             return;
