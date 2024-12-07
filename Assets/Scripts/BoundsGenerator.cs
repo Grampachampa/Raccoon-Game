@@ -7,7 +7,6 @@ using System.Xml.Serialization;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
