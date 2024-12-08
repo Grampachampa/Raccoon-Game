@@ -7,7 +7,6 @@ using System.Xml.Serialization;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
@@ -326,16 +325,23 @@ public class BoundsGenerator : MonoBehaviour
         SpawnHouse();
         MakeWalls();
         UpdateGrid();
+        MakePlayerLocation();
         SpawnSprinklers();
         SpawnCottonCandy();
         MakeFloor();
         PlaceExitDoor();
         SpawnFloorElements();
-        MakePlayerLocation();
     }
 
     void MakePlayerLocation(){
-        FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+        FreeSpaces space = new FreeSpaces();
+        for (int r = 0; r < 1000; r++){
+            space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+            if (checkFreeRadius(space.x, space.y, 2, new GridState[]{GridState.EmptyAvailable})){
+                break;
+            }
+        }
+
         playerSpawnLocation = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
         grid[space.x, space.y] = GridState.GameObject;
         UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
@@ -392,7 +398,13 @@ public class BoundsGenerator : MonoBehaviour
     }
 
     void PlaceExitDoor(){
-        FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+        FreeSpaces space = new FreeSpaces();
+        for (int r = 0; r < 1000; r++){
+            space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+            if (checkFreeRadius(space.x, space.y, 2, new GridState[]{GridState.EmptyAvailable})){
+                break;
+            }
+        }
         grid[space.x, space.y] = GridState.GameObject;
         freeSpacesList.Remove(space);   
 
@@ -402,8 +414,9 @@ public class BoundsGenerator : MonoBehaviour
         GameObject exit = Instantiate(exitDoor, pos, rotation, root.transform);
         exit.tag = "PotHole";
     }
-    void SpawnSprinklers(int defaultSprinklerCount = 5){
-        int numSprinklers = Mathf.RoundToInt(LevelManager.difficulty * defaultSprinklerCount); ;
+    void SpawnSprinklers(float defaultSprinklerDensity = 7/1500f){
+        int numSprinklers = Mathf.RoundToInt(LevelManager.difficulty * defaultSprinklerDensity * freeSpacesList.Count);
+        
         for (int i = 0; i < numSprinklers; i++)
         {
             FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
@@ -418,6 +431,7 @@ public class BoundsGenerator : MonoBehaviour
             GameObject sp = Instantiate(sprinkler, pos, rotation, root.transform);
             sp.tag = "Generated";
         }
+        print("Sprinklers:"+ numSprinklers);
     }
     void SpawnCottonCandy(int numCandy = 3){
         for (int i = 0; i < numCandy; i++)

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class RaccoonController : MonoBehaviour
@@ -74,6 +75,11 @@ public class RaccoonController : MonoBehaviour
     
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Start")
+        {
+            canDash = false;
+        }
+        
         if (isDashing)
         {
             return;
@@ -208,6 +214,7 @@ public class RaccoonController : MonoBehaviour
         playerAnimator.SetBool(IsDead, true);
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        SceneManager.LoadScene("End");
     }
 
     private IEnumerator GoPotHole()
