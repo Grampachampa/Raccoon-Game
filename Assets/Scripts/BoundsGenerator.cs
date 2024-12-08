@@ -587,7 +587,6 @@ public class BoundsGenerator : MonoBehaviour
         {
             for (int j = 0; j < maxWidth*2 + wPadding*2; j++)            
             {
-                Debug.Log("length: " + length);
                 grid[j, (maxLength + lPadding*2) - i] = GridState.EmptyOuter;
             }
         }
@@ -605,7 +604,6 @@ public class BoundsGenerator : MonoBehaviour
         for (int i = 0; i < length; i += 3)
         {
             int fence_length = Mathf.Clamp(3, 1, length-i);
-            if(fence_length != 3){Debug.Log("offseg: " + (3-fence_length));}
             // make cube at position i, 0, 0
             Vector3 pos1 = new Vector3(-widths[i], 0, house_pos - i - 3/2 + (3-fence_length));
             Vector3 pos2 = new Vector3(widths[i], 0, house_pos - i - 3/2 + (3-fence_length));
