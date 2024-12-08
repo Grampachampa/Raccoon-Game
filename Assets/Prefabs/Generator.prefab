@@ -51,7 +51,7 @@ MonoBehaviour:
   exitDoor: {fileID: 1282585982234549254, guid: 971dbbf23b95f434ea06b08bc5a0a3fe,
     type: 3}
   on: 1
-  visualize: 1
+  visualize: 0
   fences1:
   - {fileID: 2383897335418973032, guid: 3e282151fc0484442b3637fed34e21f6, type: 3}
   - {fileID: 2498242527655461122, guid: 6b4939e0d9856d542babd8f11194a051, type: 3}
