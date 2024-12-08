@@ -50,7 +50,7 @@ public class GUIManager : MonoBehaviour
             }
             else
             {
-                int roundedCandyCount = Mathf.CeilToInt(levelManager.cottonCandyCount) - 1;
+                int roundedCandyCount = Mathf.CeilToInt((levelManager.cottonCandyCount - 1));
                 candyCounterLabel.text = $": {roundedCandyCount}";
             }
         }

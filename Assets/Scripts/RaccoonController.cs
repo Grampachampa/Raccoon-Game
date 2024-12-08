@@ -160,7 +160,7 @@ public class RaccoonController : MonoBehaviour
         
         
         // Check for game end
-        if (levelManager.cottonCandyCount <= 0)
+        if (levelManager.cottonCandyCount < 1)
         {
             StartCoroutine(Die());
             //Destroy(gameObject);
