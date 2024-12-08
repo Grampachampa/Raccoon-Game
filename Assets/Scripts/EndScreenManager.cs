@@ -16,7 +16,6 @@ public class EndScreenManager : MonoBehaviour
     private float pulseAmount = 0.03f;  // Amount to scale
     void Start()
     {
-        // Initialize UI Elements
         var root = GetComponent<UIDocument>().rootVisualElement;
         
         line2Label = root.Q<Label>("line2");
@@ -25,11 +24,9 @@ public class EndScreenManager : MonoBehaviour
         
         if (playAgainButton != null)
             StartCoroutine(PulseButton());
-
-        // Set up the UI
-        line2Label.text = $"{PlayerPrefs.GetFloat("FinalScore", 0)}"; // Retrieve the score
-
-        // Add button functionality
+        
+        line2Label.text = $"{PlayerPrefs.GetFloat("FinalScore", 0)}";
+        
         playAgainButton.clicked += playAgainButtonPressed;
         exitGameButton.clicked += exitGameButtonPressed;
     }
@@ -38,13 +35,10 @@ public class EndScreenManager : MonoBehaviour
     {
         while (true)
         {
-            // Calculate the scale factor
             float scale = 1 + Mathf.Sin(Time.time * pulseSpeed) * pulseAmount;
 
-            // Apply the scale transformation to the button
             playAgainButton.style.scale = new Scale(new Vector3(scale, scale, 1));
-
-            // Wait until the next frame
+            
             yield return null;
         }
     }

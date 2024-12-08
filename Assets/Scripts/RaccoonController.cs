@@ -216,6 +216,7 @@ public class RaccoonController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
         SceneManager.LoadScene("End");
+        levelManager.endGame();
     }
 
     private IEnumerator GoPotHole()
