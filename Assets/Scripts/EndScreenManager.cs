@@ -51,7 +51,7 @@ public class EndScreenManager : MonoBehaviour
 
     private void playAgainButtonPressed()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("SampleScene");
     }
 
     private void exitGameButtonPressed()
