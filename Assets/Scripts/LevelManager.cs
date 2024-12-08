@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
         
         // Setting up the level music
 
-        globalAudio.volume = 0.17f;
+        globalAudio.volume = 0.25f;
         globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
         globalAudio.loop = true;
         globalAudio.Play();
