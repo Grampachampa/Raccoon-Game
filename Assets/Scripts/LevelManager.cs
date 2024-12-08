@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GUIManager GUI;
-    private AudioSource globalAudio;
+    [SerializeField] private AudioSource globalAudio;
 
     [SerializeField] private AudioClip[] levelMusic;
     [SerializeField] private GameObject generator;
@@ -28,7 +28,6 @@ public class LevelManager : MonoBehaviour
         //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
         // Setting up the level music
-        globalAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
 
         globalAudio.volume = 0.17f;
         globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
@@ -71,7 +70,11 @@ public class LevelManager : MonoBehaviour
             DestroyOldLevel();
         }
         currentGenerator = Instantiate(generator, new Vector3(0, 0, 0), Quaternion.identity);
-
+        
+        globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
+        globalAudio.loop = true;
+        globalAudio.Play();
+        
         InvokeNextFrame(SpawnPlayer);
     }
 

@@ -53,6 +53,7 @@ public class RaccoonController : MonoBehaviour
     [SerializeField] private AudioClip[] waterSounds;
     [SerializeField] private AudioClip[] deathSounds;
     [SerializeField] private AudioClip dropSound;
+    [SerializeField] private AudioClip portalSound;
     [SerializeField] private AudioClip[] eatingSounds;
     
     private AudioSource movementAudio;
@@ -220,16 +221,20 @@ public class RaccoonController : MonoBehaviour
     private IEnumerator GoPotHole()
     {
         isJumping = true;
-        Debug.Log("coroutine");
         playerAnimator.SetBool(IsEating, false);
         yield return null;
         playerAnimator.SetBool(IsJumping, true);
         yield return new WaitForSeconds(1f);
+        movementAudio.volume = 1f;
+        movementAudio.clip = portalSound;
+        movementAudio.Play();
         playerAnimator.SetBool(IsJumping, false);
         yield return new WaitForSeconds(1f);
+       
         isJumping = false;
         levelManager.enterNewLevel();
-        
+        inPuddle = false;
+        currentSpeed = speed;
     }
 
     private bool hasEatenCandy = false;
@@ -285,7 +290,6 @@ public class RaccoonController : MonoBehaviour
         if (other.gameObject.CompareTag("PotHole") && Input.GetKey(KeyCode.E) && !isJumping)
         {
             //enter the new level
-            Debug.Log(other.gameObject.name);
             playerAnimator.SetBool(IsEating, false);
             StartCoroutine(GoPotHole());
             
@@ -295,7 +299,13 @@ public class RaccoonController : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-       
+        if (other.gameObject.CompareTag("Sprinkler"))
+        {
+            raccoonAudio.volume = 0.8f;
+            raccoonAudio.pitch = Random.Range(2f, 2.5f);
+            raccoonAudio.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+            raccoonAudio.Play();
+        }
         
        
        
@@ -333,7 +343,7 @@ public class RaccoonController : MonoBehaviour
         }
         else
         {
-            movementAudio.volume = 0.8f;
+            movementAudio.volume = 0.7f;
             movementAudio.clip = waterSounds[Random.Range(0, waterSounds.Length)];
         }
         movementAudio.pitch = Random.Range(1f, 2f);
