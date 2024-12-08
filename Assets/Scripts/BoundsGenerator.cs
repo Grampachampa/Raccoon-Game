@@ -93,7 +93,9 @@ public class BoundsGenerator : MonoBehaviour
         WallPadding,
         Wall,
         GameObject,
-        ObjectPadding
+        ObjectPadding,
+        Spawn,
+        Teleport
     }
 
     List<int> widths = new List<int>();
@@ -144,7 +146,18 @@ public class BoundsGenerator : MonoBehaviour
                 bool found = false;
                 for (int r = 0; r < 100; r++){
                     space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
-                    if (checkFreeRadius(space.x, space.y, go.diameter, new GridState[]{GridState.EmptyAvailable})){
+                    if (checkFreeRadius(space.x, space.y, go.diameter, new GridState[]{GridState.EmptyAvailable})
+                    
+                    &&
+                    (checkFreeRadius(space.x, space.y, 8, new GridState[]{
+                    GridState.EmptyAvailable,
+                    GridState.EmptyOuter,
+                    GridState.WallPadding,
+                    GridState.Wall,
+                    GridState.GameObject,
+                    GridState.ObjectPadding,
+                    GridState.Spawn
+                    }) || go.name != "Trees")){
                         found = true;
                         break;
                     }
@@ -343,7 +356,7 @@ public class BoundsGenerator : MonoBehaviour
         }
 
         playerSpawnLocation = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
-        grid[space.x, space.y] = GridState.GameObject;
+        grid[space.x, space.y] = GridState.Spawn;//GameObject;
         UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
 
     }
@@ -405,7 +418,7 @@ public class BoundsGenerator : MonoBehaviour
                 break;
             }
         }
-        grid[space.x, space.y] = GridState.GameObject;
+        grid[space.x, space.y] = GridState.Teleport;
         freeSpacesList.Remove(space);   
 
         UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
@@ -414,18 +427,35 @@ public class BoundsGenerator : MonoBehaviour
         GameObject exit = Instantiate(exitDoor, pos, rotation, root.transform);
         exit.tag = "PotHole";
     }
-    void SpawnSprinklers(float defaultSprinklerDensity = 7/1500f){
-        int numSprinklers = Mathf.RoundToInt(LevelManager.difficulty * defaultSprinklerDensity * freeSpacesList.Count);
+    void SpawnSprinklers(float defaultSprinklerDensity = 5){
+        float currentDensity = (defaultSprinklerDensity + LevelManager.difficulty)/1500f;
+        int numSprinklers = Mathf.RoundToInt(LevelManager.difficulty * currentDensity * freeSpacesList.Count);
         
         for (int i = 0; i < numSprinklers; i++)
         {
             FreeSpaces space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+
+            for (int r = 0; r < 100; r++){
+                space = freeSpacesList[Random.Range(0, freeSpacesList.Count)];
+                if (checkFreeRadius(space.x, space.y, 8, new GridState[]{
+                    GridState.EmptyAvailable,
+                    GridState.EmptyOuter,
+                    GridState.WallPadding,
+                    GridState.Wall,
+                    GridState.GameObject,
+                    GridState.ObjectPadding,
+                    GridState.Teleport
+                    })){
+
+                    break;
+                }
+            }
             grid[space.x, space.y] = GridState.GameObject;
             freeSpacesList.Remove(space);
 
-            //UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter}, GridState.ObjectPadding);
 
             Vector3 pos = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
+
 
             Quaternion rotation = Quaternion.Euler(-90, Random.Range(0, 360), 0);
             GameObject sp = Instantiate(sprinkler, pos, rotation, root.transform);
@@ -676,7 +706,6 @@ public class BoundsGenerator : MonoBehaviour
 
             for (int j = 0; j < wallLen; j++)
             {
-                Debug.Log("gridIndex: " + gridIndex);
                 grid[currentWidth + maxWidth + wPadding + j, gridIndex] = GridState.Wall;
                 grid[-currentWidth + maxWidth + wPadding - j, gridIndex] = GridState.Wall;
             }
