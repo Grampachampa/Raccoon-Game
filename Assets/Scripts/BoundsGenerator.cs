@@ -156,7 +156,6 @@ public class BoundsGenerator : MonoBehaviour
                     GridState.Wall,
                     GridState.GameObject,
                     GridState.ObjectPadding,
-                    GridState.Spawn
                     }) || go.name != "Trees")){
                         found = true;
                         break;
