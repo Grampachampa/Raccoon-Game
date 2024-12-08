@@ -48,14 +48,15 @@ public class LevelManager : MonoBehaviour
         
         //Debug.Log(cottonCandyCount);
     }
-    private void endGame()
+    public void endGame()
     {
         //Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         
         //GUI.ReportToPlayer("You died!", "Score:", levelCount);
+        Debug.Log(levelCount);
         
-        PlayerPrefs.SetFloat("FinalScore", levelCount); // Save the score to be displayed later
+        PlayerPrefs.SetFloat("FinalScore", levelCount);
     }
     
     public void enterNewLevel()
