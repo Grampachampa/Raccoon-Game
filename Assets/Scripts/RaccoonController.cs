@@ -299,7 +299,7 @@ public class RaccoonController : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Sprinkler"))
+        if (other.gameObject.CompareTag("Sprinkler") && !isDashing)
         {
             raccoonAudio.volume = 0.8f;
             raccoonAudio.pitch = Random.Range(2f, 2.5f);
