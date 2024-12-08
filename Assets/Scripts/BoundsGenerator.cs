@@ -358,7 +358,8 @@ public class BoundsGenerator : MonoBehaviour
         playerSpawnLocation = new Vector3(space.x - maxWidth - wPadding, 0, house_pos - space.y + 3/2 + 1 + lPadding);
         grid[space.x, space.y] = GridState.Spawn;//GameObject;
         UpdateSurroundingSquares(space.x, space.y, new GridState[]{GridState.EmptyAvailable, GridState.EmptyOuter, GridState.WallPadding}, GridState.GameObject, 2);
-
+        GameObject raccoon = GameObject.Find("Raccoon");
+        raccoon.transform.position = playerSpawnLocation;
     }
 
     void SpawnFloorElements(){

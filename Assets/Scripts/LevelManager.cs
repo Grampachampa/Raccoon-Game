@@ -70,19 +70,13 @@ public class LevelManager : MonoBehaviour
         {
             DestroyOldLevel();
         }
+        currentGenerator = null;
         currentGenerator = Instantiate(generator, new Vector3(0, 0, 0), Quaternion.identity);
         
         globalAudio.clip = levelMusic[Random.Range(0,levelMusic.Length)]; 
         globalAudio.loop = true;
         globalAudio.Play();
         
-        InvokeNextFrame(SpawnPlayer);
-    }
-
-    public void SpawnPlayer()
-    {
-        GameObject raccoon = GameObject.Find("Raccoon");
-        raccoon.transform.position = currentGenerator.GetComponent<BoundsGenerator>().playerSpawnLocation; 
     }
 
     private void DestroyOldLevel(){
