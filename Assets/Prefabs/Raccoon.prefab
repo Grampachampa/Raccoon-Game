@@ -793,6 +793,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c73a326c5b4c34502a9b4dd1f641f4f2, type: 3}
   - {fileID: 8300000, guid: 50212b3fdece046eab72a3295b5df328, type: 3}
   dropSound: {fileID: 8300000, guid: f1378f6e3708447a3bd0d368e9a88240, type: 3}
+  portalSound: {fileID: 8300000, guid: e2dbc3e087be447aa810f3e682832467, type: 3}
   eatingSounds:
   - {fileID: 8300000, guid: 21f0f71dc1df446aaa11b0d8971a8a00, type: 3}
   - {fileID: 8300000, guid: e90e94b581d8049b98a425b900a49e35, type: 3}

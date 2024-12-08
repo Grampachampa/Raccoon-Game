@@ -1919,6 +1919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GUI: {fileID: 1563466663}
+  globalAudio: {fileID: 330585549}
   levelMusic:
   - {fileID: 8300000, guid: c63509138d9e5474bbdada79c3ed96bb, type: 3}
   - {fileID: 8300000, guid: 2ba661ebff2864e6886f2040d4774e52, type: 3}
@@ -5743,6 +5744,11 @@ PrefabInstance:
       propertyPath: eatingSound
       value: 
       objectReference: {fileID: 8300000, guid: 08b3098c6dc1742e690eaceed159091c, type: 3}
+    - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
+        type: 3}
+      propertyPath: portalSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e2dbc3e087be447aa810f3e682832467, type: 3}
     - target: {fileID: 4496632125703637844, guid: 1509ee1f4d01f834383f795748d29108,
         type: 3}
       propertyPath: levelManager
