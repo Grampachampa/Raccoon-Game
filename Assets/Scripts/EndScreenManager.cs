@@ -51,6 +51,7 @@ public class EndScreenManager : MonoBehaviour
 
     private void playAgainButtonPressed()
     {
+        PlayerPrefs.SetFloat("FinalScore", 1);
         SceneManager.LoadScene("SampleScene");
     }
 
