@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public class StartScreenManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class StartScreenManager : MonoBehaviour
     private float pulseAmount = 0.03f;  // Amount to scale
     void Start()
     {
+        Cursor.visible = false;
         var root = GetComponent<UIDocument>().rootVisualElement;
         startText = root.Q<Label>("startText");
         title = root.Q<Label>("title");

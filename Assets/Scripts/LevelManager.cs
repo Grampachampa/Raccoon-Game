@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     {
         // LoadStartScene();
         enterNewLevel();
+        Cursor.visible = false;
         //GUI = GameObject.Find("GUI").GetComponent<GUIManager>();
         
         // Setting up the level music

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public class EndScreenManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class EndScreenManager : MonoBehaviour
     private float pulseAmount = 0.03f;  // Amount to scale
     void Start()
     {
+        Cursor.visible = true;
         var root = GetComponent<UIDocument>().rootVisualElement;
         
         line2Label = root.Q<Label>("line2");
